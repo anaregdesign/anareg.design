@@ -59,13 +59,14 @@ export function Section({ children }: { children: React.ReactNode }) {
 
 export function StickySection({ children }: { children: React.ReactNode }) {
   return (
-    <div className="sticky top-0 bg-white z-50 py-12 text-center [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]">
+    <div className="sticky top-0 bg-white z-50 py-10 text-center [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]">
       {children}
     </div>
   );
 }
 
 import { useState, useEffect, useRef } from "react";
+import { ColofulText, ColorTheme } from "./theme";
 
 export function Divider() {
   const boxRef = useRef<HTMLDivElement>(null);
@@ -100,13 +101,19 @@ export function Header({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function InqueryButton() {
-  const button = `+=====================+
+export function InqueryButton({ theme }: { theme?: ColorTheme }) {
+  const button = `+===================+
 |  🥺お問合せはこちら🥺  |
-+=====================+`;
++===================+`;
+  const lines = button.split("\n");
   return (
-    <pre className="inline-block text-center font-mono leading-tight">
-      <span className="transition-colors hover:text-blue-500">{button}</span>
-    </pre>
+    <div className="inline-block text-center font-mono leading-tight">
+      {lines.map((line, index) => (
+        <>
+          <ColofulText>{line}</ColofulText>
+          <br />
+        </>
+      ))}
+    </div>
   );
 }

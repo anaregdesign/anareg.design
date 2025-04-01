@@ -94,7 +94,7 @@ export function ColofulText({
     );
     prevIndex = colorIndex;
     return (
-      <span key={i} style={{ color: colors[colorIndex] }}>
+      <span className="font-bold" key={i} style={{ color: colors[colorIndex] }}>
         {char}
       </span>
     );

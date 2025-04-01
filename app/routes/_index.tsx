@@ -54,7 +54,7 @@ export default function Index() {
         </p>
       </Section>
       <StickySection>
-        <InqueryButton />
+        <InqueryButton theme={theme} />
       </StickySection>
       <Section>
         <Divider />
