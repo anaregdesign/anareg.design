@@ -17,13 +17,15 @@ Y8888D' Y88888P '8888Y' Y888888P  Y888P  VP   V8P
 
   return (
     <div className="text-center">
-      <pre className="inline-block text-left font-mono">{ascii2line}</pre>
+      <pre className="inline-block text-left font-mono leading-tight">
+        {ascii2line}
+      </pre>
     </div>
   );
 }
 
 export function Section({ children }: { children: React.ReactNode }) {
-  return <div className="space-y-4">{children}</div>;
+  return <div className="space-y-4 my-8">{children}</div>;
 }
 
 import { useState, useEffect, useRef } from "react";
