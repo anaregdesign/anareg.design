@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-white text-black">
-        <div className="max-w-2xl min-h-80 bg-white mx-auto mt-12 p-4">
+        <div className="max-w-2xl min-h-80 bg-white mx-auto my-12 p-4">
           {children}
         </div>
         <Scripts />

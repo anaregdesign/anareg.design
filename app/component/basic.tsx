@@ -60,3 +60,11 @@ export function Divider() {
         </div>
     );
 }
+
+export function Header({ children }: { children: React.ReactNode }) {
+    return (
+        <div className="text-center my-4">
+            <h1 className="text-lg font-normal">{children}</h1>
+        </div>
+    );
+}
