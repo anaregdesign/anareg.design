@@ -28,6 +28,14 @@ export function Section({ children }: { children: React.ReactNode }) {
   return <div className="space-y-4 my-8">{children}</div>;
 }
 
+export function StickySection({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="sticky top-0 bg-white my-12 [mask-image:linear-gradient(to_bottom,white_80%,transparent_100%)]">
+      {children}
+    </div>
+  );
+}
+
 import { useState, useEffect, useRef } from "react";
 
 export function Divider() {
@@ -65,9 +73,9 @@ export function Header({ children }: { children: React.ReactNode }) {
 
 export function InqueryButton({ children }: { children: React.ReactNode }) {
   const button = `
-+-----------------+
-|  お問合せはこちら  |
-+-----------------+
++---------------------+
+|  🥺お問合せはこちら🥺  |
++---------------------+
     `;
   return (
     <div className="text-center my-2S">

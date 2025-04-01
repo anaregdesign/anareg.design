@@ -6,6 +6,7 @@ import {
   Divider,
   Header,
   Section,
+  StickySection,
 } from "~/component/basic";
 import {
   ColofulText,
@@ -31,7 +32,7 @@ export default function Index() {
       <Divider />
       <Section>
         <p>
-          <ColofulText>anaregdesign</ColofulText>
+          <ColofulText theme={theme}>anaregdesign</ColofulText>
           はミズカミヒロキの個人事務所です。
         </p>
         <p>
@@ -44,9 +45,9 @@ export default function Index() {
           簡単な可視化から業務の自動化、マーケティング関連の分析など、些細なことでもお気軽にお問い合わせくださいませ。
         </p>
       </Section>
-      <Section>
+      <StickySection>
         <InqueryButton>お問合せはこちら</InqueryButton>
-      </Section>
+      </StickySection>
       <Section>
         <Divider />
         <Header>シンプルな解決方法を好む</Header>
@@ -148,7 +149,7 @@ export default function Index() {
           まず、本業との兼ね合いでクラウドやインフラ、ソフトウェアの選定に携わることができません。
         </p>
         <p>
-          ただクラウドやBI・DataWarehouseとかの簡単なインフラなら自前で調達してたりまするから導入後のイメージを掴むまでくらいならお手伝いはできると思います。{" "}
+          ただクラウドやBI・DataWarehouseとかの簡単なインフラなら自前で調達してたりまするから導入後の抽象的なイメージを掴むまでくらいならお手伝いはできると思います。{" "}
         </p>
         <p>
           それから、個人情報や機密情報などの取り扱いについては、入念に法務担当の方と相談させてもらっています。場合によってはお断りすることもあるので悪しからず。
