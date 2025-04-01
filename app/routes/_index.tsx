@@ -7,14 +7,14 @@ import {
   Header,
   Section,
   StickySection,
-} from "~/component/basic";
+} from "~/components/basic";
 import {
   ColofulText,
   Color1,
   Color2,
   Color3,
   themeRepository,
-} from "~/component/theme";
+} from "~/components/theme";
 
 export const meta: MetaFunction = () => {
   return [
@@ -160,7 +160,7 @@ export default function Index() {
           まず、本業との兼ね合いでクラウドやインフラ、ソフトウェアの選定に携わることができません。
         </p>
         <p>
-          ただクラウドやBI・DataWarehouseとかの簡単なインフラなら自前で調達してたりするので導入後の抽象的なイメージを掴むまでくらいならお手伝いはできると思います。{" "}
+          ただクラウドやBI・DataWarehouse・生成AIとかの簡単なインフラなら自前で調達してたりするので導入後の抽象的なイメージを掴むまでくらいならお手伝いはできると思います。{" "}
         </p>
         <p>
           それから、個人情報や機密情報などの取り扱いについては、入念に法務担当の方と相談させてもらっています。場合によってはお断りすることもあるので悪しからず。
