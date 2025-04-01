@@ -1,6 +1,12 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
-import { Banner, Divider, Header, Section } from "~/component/basic";
+import {
+  Banner,
+  InqueryButton,
+  Divider,
+  Header,
+  Section,
+} from "~/component/basic";
 import {
   ColofulText,
   Color1,
@@ -37,6 +43,9 @@ export default function Index() {
         <p>
           簡単な可視化から業務の自動化、マーケティング関連の分析など、些細なことでもお気軽にお問い合わせくださいませ。
         </p>
+      </Section>
+      <Section>
+        <InqueryButton>お問合せはこちら</InqueryButton>
       </Section>
       <Section>
         <Divider />

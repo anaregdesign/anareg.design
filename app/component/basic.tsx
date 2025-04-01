@@ -62,3 +62,18 @@ export function Header({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+export function InqueryButton({ children }: { children: React.ReactNode }) {
+  const button = `
++-----------------+
+|  お問合せはこちら  |
++-----------------+
+    `;
+  return (
+    <div className="text-center my-2S">
+      <pre className="inline-block text-center font-mono leading-tight">
+        {button}
+      </pre>
+    </div>
+  );
+}
