@@ -30,7 +30,7 @@ export function Section({ children }: { children: React.ReactNode }) {
 
 export function StickySection({ children }: { children: React.ReactNode }) {
   return (
-    <div className="sticky top-0 bg-white my-12 [mask-image:linear-gradient(to_bottom,white_80%,transparent_100%)]">
+    <div className="sticky top-0 bg-white pt-8 pb-16 text-center [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]">
       {children}
     </div>
   );
@@ -71,17 +71,13 @@ export function Header({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function InqueryButton({ children }: { children: React.ReactNode }) {
-  const button = `
-+---------------------+
+export function InqueryButton() {
+  const button = `+---------------------+
 |  🥺お問合せはこちら🥺  |
-+---------------------+
-    `;
++---------------------+`;
   return (
-    <div className="text-center my-2S">
-      <pre className="inline-block text-center font-mono leading-tight">
-        {button}
-      </pre>
-    </div>
+    <pre className="inline-block text-center font-mono leading-tight">
+      <span className="transition-colors hover:text-blue-500">{button}</span>
+    </pre>
   );
 }
