@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Banner,
   InqueryButton,
@@ -25,9 +25,17 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   const [theme, setTheme] = useState(themeRepository.getRandomTheme());
+  useEffect(() => {
+    const handleScroll = () => {
+      setTheme(themeRepository.getRandomTheme());
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   return (
-    <div onClick={() => setTheme(themeRepository.getRandomTheme())}>
+    <div>
       <Banner />
       <Divider />
       <Section>
@@ -163,4 +171,7 @@ export default function Index() {
       </Section>
     </div>
   );
+}
+function handleScroll() {
+  throw new Error("Function not implemented.");
 }
