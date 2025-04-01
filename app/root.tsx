@@ -24,17 +24,27 @@ export const links: LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="bg-white text-black text-lg font-mono leading-relaxed"
+    >
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
-        <ScrollRestoration />
+      <body className="bg-white text-black">
+        <div className="max-w-2xl min-h-80 bg-white mx-auto my-12 p-4">
+          {children}
+        </div>
         <Scripts />
+        <footer className="text-center my-4">
+          <ul className="flex space-x-4 justify-center">
+            <li>適格請求書発行事業者登録番号: T6810853446838 </li>
+            <li>© 2025 anaregdesign All rights reserved.</li>
+          </ul>
+        </footer>
       </body>
     </html>
   );
