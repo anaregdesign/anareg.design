@@ -1,5 +1,3 @@
-import { Children } from "react";
-
 export function Banner() {
     const ascii2line = `
  .d8b.  d8b   db  .d8b.  d8888b. d88888b  d888b
@@ -29,8 +27,36 @@ Y8888D' Y88888P '8888Y' Y888888P  Y888P  VP   V8P
 
 export function Section({ children }: { children: React.ReactNode }) {
     return (
-        <div className="">
+        <div className="space-y-4">
             {children}
+        </div>
+    );
+}
+
+import { useState, useEffect, useRef } from "react";
+
+export function Divider() {
+    const boxRef = useRef<HTMLDivElement>(null);
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        const updateCount = () => {
+            const charWidth = 11.25;
+            if (boxRef.current) {
+                const newCount = Math.floor(boxRef.current.clientWidth / charWidth);
+                setCount(newCount);
+
+            }
+        };
+
+        updateCount();
+        window.addEventListener("resize", updateCount);
+        return () => window.removeEventListener("resize", updateCount);
+    }, []);
+
+    return (
+        <div ref={boxRef} className="text-center my-4">
+            {"=".repeat(count)}
         </div>
     );
 }
