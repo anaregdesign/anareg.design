@@ -39,6 +39,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
         <Scripts />
+        <footer className="text-center my-4">
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </footer>
       </body>
     </html>
   );
