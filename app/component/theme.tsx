@@ -56,4 +56,24 @@ export function Color3({ children, theme = themeRepository.themes.contrastTheme 
     );
 }
 
-
+export function ColofulText({ children, theme = themeRepository.themes.contrastTheme }: { children: React.ReactNode; theme?: ColorTheme }) {
+    // If children is not a string, fallback to original behavior.
+    if (typeof children !== 'string') {
+        return (
+            <span style={{ color: theme.primaryColor }}>
+                {children}
+            </span>
+        );
+    }
+    const colors = [theme.primaryColor, theme.secondaryColor, theme.tertiaryColor];
+    let prevIndex: number | null = null;
+    const coloredCharacters = children.split('').map((char, i) => {
+        let colorIndex;
+        do {
+            colorIndex = Math.floor(Math.random() * colors.length);
+        } while (prevIndex !== null && colorIndex === prevIndex && colors.length > 1);
+        prevIndex = colorIndex;
+        return <span key={i} style={{ color: colors[colorIndex] }}>{char}</span>;
+    });
+    return <>{coloredCharacters}</>;
+}
