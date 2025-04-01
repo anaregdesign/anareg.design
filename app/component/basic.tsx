@@ -25,12 +25,41 @@ Y8888D' Y88888P '8888Y' Y888888P  Y888P  VP   V8P
 }
 
 export function Section({ children }: { children: React.ReactNode }) {
-  return <div className="space-y-4 my-8">{children}</div>;
+  const ref = useRef<HTMLDivElement>(null);
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // ビューポート内で見えている部分の高さを計算
+        const visibleHeight =
+          Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+        // 要素全体の高さに対する表示割合を新しい透明度として設定
+        const newOpacity = Math.min(
+          Math.max(visibleHeight / rect.height, 0),
+          1
+        );
+        setOpacity(newOpacity);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div ref={ref} className="space-y-4 my-8 z-0" style={{ opacity }}>
+      {children}
+    </div>
+  );
 }
 
 export function StickySection({ children }: { children: React.ReactNode }) {
   return (
-    <div className="sticky top-0 bg-white pt-8 pb-16 text-center [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]">
+    <div className="sticky top-0 bg-white z-50 py-12 text-center [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]">
       {children}
     </div>
   );
@@ -72,9 +101,9 @@ export function Header({ children }: { children: React.ReactNode }) {
 }
 
 export function InqueryButton() {
-  const button = `+---------------------+
+  const button = `+=====================+
 |  🥺お問合せはこちら🥺  |
-+---------------------+`;
++=====================+`;
   return (
     <pre className="inline-block text-center font-mono leading-tight">
       <span className="transition-colors hover:text-blue-500">{button}</span>
