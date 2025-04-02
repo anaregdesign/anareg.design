@@ -1,9 +1,7 @@
+import { ActionFunctionArgs } from "@remix-run/node";
 import { firestore } from "~/services/firebase.server";
 
-export async function action({ request }: { request: Request }) {
-  if (request.method.toUpperCase() !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
-  }
+export async function action({ request }: ActionFunctionArgs) {
   try {
     const formData = await request.formData();
     const doc = {

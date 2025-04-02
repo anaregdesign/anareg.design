@@ -1,8 +1,10 @@
+import { Form } from "@remix-run/react";
+
 export function InqueryForm() {
   const labelStyle = "py-2 px-4 align-middle text-right whitespace-nowrap w-32";
 
   return (
-    <form action="/api/v1/inqueries" method="POST" target="_blank">
+    <Form action="/api/v1/inqueries" method="POST">
       <table className="w-full border-collapse">
         <tbody>
           <tr>
@@ -98,6 +100,6 @@ export function InqueryForm() {
           </tr>
         </tbody>
       </table>
-    </form>
+    </Form>
   );
 }
