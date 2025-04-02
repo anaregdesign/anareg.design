@@ -1,4 +1,4 @@
-import { InqueryForm } from "~/components/basic";
+import { InqueryForm } from "~/components/form";
 
 export default function Form() {
   return (
