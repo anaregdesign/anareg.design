@@ -2,7 +2,7 @@ export function InqueryForm() {
   const labelStyle = "py-2 px-4 align-middle text-right whitespace-nowrap w-32";
 
   return (
-    <form action="/api/inquiries" method="POST" target="_blank">
+    <form action="/api/v1/inqueries" method="POST" target="_blank">
       <table className="w-full border-collapse">
         <tbody>
           <tr>
@@ -81,7 +81,7 @@ export function InqueryForm() {
                   className="mr-2 bg-white"
                 />
                 <label htmlFor="consent" className="text-gray-600">
-                  個人情報の利用に同意する
+                  データの利用規約に同意する
                 </label>
               </div>
             </td>
