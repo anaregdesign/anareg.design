@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import {
   Banner,
@@ -36,8 +37,6 @@ export default function Index() {
 
   return (
     <div>
-      <Banner />
-      <Divider />
       <Section>
         <p>
           <ColofulText theme={theme}>anaregdesign</ColofulText>
@@ -54,7 +53,9 @@ export default function Index() {
         </p>
       </Section>
       <StickySection>
-        <InqueryButton theme={theme} />
+        <Link to="/form">
+          <InqueryButton theme={theme} />
+        </Link>
       </StickySection>
       <Section>
         <Divider />
@@ -83,17 +84,17 @@ export default function Index() {
       <Section>
         <Header>
           <ColofulText theme={theme}>
-            意思決定の分岐点となる情報を特定する
+            判断の分岐点となる情報を特定する
           </ColofulText>
         </Header>
         <p>
-          難しい決断をする時、もしくは顧客に自社を選択してもらうとき、誰でも何かしらの判断基準があるはずです。
+          何かを判断する時、もしくは顧客に自社を選択してもらうとき、誰でも何かしらの判断基準があるはずです。というか、ないなら作るべきです。
         </p>
         <p>
           分析の最初のフェーズでは、その分岐点となる情報を特定するところから入ります。
         </p>
         <p>
-          そして、その情報が最初から手元にあることはすっごく稀なので、その場合このフェーズではその条件を想像で仮置きします。また少しでもサンプルのデータがあれば最近ならそれを生成AIとかでグイーッと引き伸ばしたりします。
+          そして、その情報が最初から手元にあることはすっごく稀で、すぐに手に入らない場合このフェーズではその条件を想像で仮置きします。また少しでもサンプルのデータがあれば最近ならそれを生成AIとかでグイーッと引き伸ばしたりします。
         </p>
         <p>
           もちろん永遠に手に入らないデータを妄想してもしょうがないので、この段階では入手方法もある程度目星をつけておくことが大事です。
@@ -101,11 +102,11 @@ export default function Index() {
       </Section>
       <Section>
         <Header>
-          <ColofulText theme={theme}>意思決定の根拠を明確にする</ColofulText>
+          <ColofulText theme={theme}>判断の根拠を明確にする</ColofulText>
         </Header>
-        <p>実際に集計や可視化を行い、意思決定の根拠を明確にします。</p>
+        <p>実際に集計や可視化を行い、判断の根拠を明確にします。</p>
         <p>
-          具体的には可視化などを通じて、アウトプットが意思決定に十分な情報になる事を確認します
+          具体的には可視化などを通じて、アウトプットが意思決定に十分な根拠になる事を確認します。
         </p>
         <p>
           たとえ、それがダミーデータでもこのフェーズではビビりません。一回分析してみることが大事。

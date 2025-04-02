@@ -38,7 +38,7 @@ export function Section({ children }: { children: React.ReactNode }) {
           Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
         // 要素全体の高さに対する表示割合を新しい透明度として設定
         const newOpacity = Math.min(
-          Math.max(visibleHeight / rect.height, 0),
+          Math.max(visibleHeight / rect.height - 0.3, 0),
           1
         );
         setOpacity(newOpacity);
