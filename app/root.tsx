@@ -44,6 +44,7 @@ export const meta: MetaFunction = () => {
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const measurementId = "G-6NFHEH43G8";
   return (
     <html
       lang="en"
@@ -54,6 +55,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {/* Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${measurementId}');
+            `,
+          }}
+        />
       </head>
       <body className="bg-white text-black">
         <div className="max-w-2xl min-h-80 bg-white mx-auto my-12 p-4">
