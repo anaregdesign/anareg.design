@@ -5,7 +5,8 @@ export async function action({ request }: ActionFunctionArgs) {
   try {
     const formData = await request.formData();
     const doc = {
-      name: formData.get("name"),
+      lastName: formData.get("lastName"),
+      firstName: formData.get("firstName"),
       affiliation: formData.get("affiliation"),
       department: formData.get("department"),
       email: formData.get("email"),
@@ -15,7 +16,8 @@ export async function action({ request }: ActionFunctionArgs) {
     };
 
     const customer = {
-      name: formData.get("name"),
+      lastName: formData.get("lastName"),
+      firstName: formData.get("firstName"),
       affiliation: formData.get("affiliation"),
       department: formData.get("department"),
       email: formData.get("email"),

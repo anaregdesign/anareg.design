@@ -10,14 +10,30 @@ export function InqueryForm() {
         <tbody>
           <tr className="flex flex-col md:table-row">
             <td className={`${labelStyle} md:w-32 md:text-right`}>
-              <label htmlFor="name">氏名</label>
+              <label htmlFor="lastName">姓</label>
             </td>
             <td className="py-2 px-4 flex-1">
               <input
-                id="name"
+                id="lastName"
                 type="text"
-                name="name"
+                name="lastName"
                 className="bg-white border border-black p-2 w-full"
+                placeholder="姓"
+                required
+              />
+            </td>
+          </tr>
+          <tr className="flex flex-col md:table-row">
+            <td className={`${labelStyle} md:w-32 md:text-right`}>
+              <label htmlFor="firstName">名</label>
+            </td>
+            <td className="py-2 px-4 flex-1">
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                className="bg-white border border-black p-2 w-full"
+                placeholder="名"
                 required
               />
             </td>
@@ -32,6 +48,7 @@ export function InqueryForm() {
                 type="text"
                 name="affiliation"
                 className="bg-white border border-black p-2 w-full"
+                placeholder="ご所属"
                 required
               />
             </td>
@@ -46,6 +63,7 @@ export function InqueryForm() {
                 type="text"
                 name="department"
                 className="bg-white border border-black p-2 w-full"
+                placeholder="部署"
                 required
               />
             </td>
@@ -60,6 +78,7 @@ export function InqueryForm() {
                 type="email"
                 name="email"
                 className="bg-white border border-black p-2 w-full"
+                placeholder="ビジネスメールアドレス"
                 required
               />
             </td>
@@ -74,6 +93,7 @@ export function InqueryForm() {
                 name="inquiry"
                 rows={10}
                 className="bg-white border border-black p-2 w-full"
+                placeholder="お問合せ内容"
                 required
               />
             </td>
