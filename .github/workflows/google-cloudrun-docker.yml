@@ -35,10 +35,10 @@ on:
       - 'v*' 
 
 env:
-  PROJECT_ID: 'your-gcp-project-id'
-  REGION: 'asia-northeast1' # 日本の場合このリージョンでOK
+  PROJECT_ID: 'anaregdesign-455601'
+  REGION: 'asia-northeast1'
   SERVICE: 'anaregdesign-web-service'
-  WORKLOAD_IDENTITY_PROVIDER: 'projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/anaregdesign-web-pool/providers/anaregdesign-web-provider'
+  WORKLOAD_IDENTITY_PROVIDER: 'projects/604272699456/locations/global/workloadIdentityPools/anaregdesign-web-pool/providers/anaregdesign-web-provider'
 
 
 jobs:
