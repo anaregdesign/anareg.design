@@ -13,6 +13,7 @@ export default function ThankYou() {
     <div>
       <Header>お問い合わせありがとうございます。</Header>
       <p>順次ご連絡させていただきます。今しばらくお待ちくださいませ。</p>
+      <p>5秒後にトップページに戻ります。</p>
     </div>
   );
 }
