@@ -1,20 +1,6 @@
 import { ActionFunctionArgs } from "@remix-run/node";
 import { db } from "~/services/firebase.server";
 
-export async function loader() {
-  try {
-    const collections = await db.listCollections();
-
-    return new Response(
-      JSON.stringify(collections.map((collection) => collection.id)),
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error fetching collections:", error);
-    return Response.json({ status: 500, response: error });
-  }
-}
-
 export async function action({ request }: ActionFunctionArgs) {
   try {
     const formData = await request.formData();
