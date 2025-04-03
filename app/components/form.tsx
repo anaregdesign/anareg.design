@@ -92,12 +92,12 @@ export function InqueryForm() {
                   <Form action="/api/v1/inqueries" method="POST">
                     {Object.entries(formData).map(
                       ([key, value]) =>
-                        value !== false && (
+                        (key === "consent" || value !== false) && (
                           <input
                             key={key}
                             type="hidden"
                             name={key}
-                            value={String(value)}
+                            value={key === "consent" ? "true" : String(value)}
                             readOnly
                           />
                         )
