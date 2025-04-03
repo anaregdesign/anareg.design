@@ -1,5 +1,19 @@
 import { ActionFunctionArgs } from "@remix-run/node";
-import { firestore } from "~/services/firebase.server";
+import { db } from "~/services/firebase.server";
+
+export async function loader() {
+  try {
+    const collections = await db.listCollections();
+
+    return new Response(
+      JSON.stringify(collections.map((collection) => collection.id)),
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error fetching collections:", error);
+    return Response.json({ status: 500, response: error });
+  }
+}
 
 export async function action({ request }: ActionFunctionArgs) {
   try {
@@ -13,7 +27,9 @@ export async function action({ request }: ActionFunctionArgs) {
       consent: formData.get("consent") === "on",
       createdAt: new Date(),
     };
-    await firestore.collection("inqueries").add(doc);
+
+    console.log("doc", doc);
+    await db.collection("inqueries").add(doc);
     return new Response("Success", { status: 200 });
   } catch (error) {
     return new Response("Error", { status: 500 });

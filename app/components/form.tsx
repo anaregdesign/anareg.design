@@ -4,7 +4,7 @@ export function InqueryForm() {
   const labelStyle = "py-2 px-4 align-middle text-right whitespace-nowrap w-32";
 
   return (
-    <Form action="/api/v1/inqueries" method="POST">
+    <Form action="/api/v1/inqueries" method="POST" target="/">
       <table className="w-full border-collapse">
         <tbody>
           <tr>
