@@ -21,6 +21,8 @@ COPY --from=builder /app/build ./build
 
 RUN npm install --production
 
-EXPOSE 3000
+ENV PORT 8080
+ENV HOST 0.0.0.0
+EXPOSE ${PORT}
 
 CMD ["npm", "start"]

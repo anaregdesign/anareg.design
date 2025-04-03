@@ -1,5 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "github.copilot.customInstruction": "TypescriptとRemix/React/Tailwindを使用しています。デザインの修正には必ずTailwindを使い、生成するコードは必ず厳密な型付けをしてください"
+  "github.copilot.customInstruction": "TypescriptとRemix/React/Tailwindを使用しています。デザインの修正には必ずTailwindを使い、生成するコードは必ず厳密な型付けをしてください",
+  "[makefile]": {
+    "editor.insertSpaces": false
+  }
 }

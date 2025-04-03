@@ -7,7 +7,8 @@
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/server/index.js --port 8080",
+    "start": "remix-serve ./build/server/index.js",
+    "start:docker": "docker build -t anaregdesign-web:local . && docker run -p 8080:8080 anaregdesign-web:local",
     "typecheck": "tsc"
   },
   "dependencies": {
