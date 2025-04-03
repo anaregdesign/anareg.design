@@ -79,15 +79,15 @@ export function InqueryForm() {
           </tr>
           <tr>
             <td className="py-2 px-4" colSpan={2}>
-              <div className="flex items-center">
+              <div className="flex items-center justify-center">
                 <input
                   type="checkbox"
                   name="consent"
                   id="consent"
                   required
-                  className="mr-2 bg-white"
+                  className="mr-2 bg-white border-black"
                 />
-                <label htmlFor="consent" className="text-gray-600">
+                <label htmlFor="consent" className="text-gray-600 text-center">
                   データの利用規約に同意する
                 </label>
               </div>

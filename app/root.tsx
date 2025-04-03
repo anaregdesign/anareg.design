@@ -21,7 +21,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className="bg-white text-black text-lg font-mono leading-relaxed"
+      className="bg-white text-black text-lg font-mono leading-relaxed appearance-none"
     >
       <head>
         <meta charSet="utf-8" />
