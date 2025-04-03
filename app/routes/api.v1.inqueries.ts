@@ -4,8 +4,10 @@ import { db } from "~/services/firebase.server";
 export async function action({ request }: ActionFunctionArgs) {
   try {
     const formData = await request.formData();
+    const xForwardedFor = request.headers.get("x-forwarded-for");
+    const xRealIp = request.headers.get("x-real-ip");
+    const ipAddress = xForwardedFor ?? xRealIp ?? null;
 
-    // validate honey pot
     const honeypot = formData.get("website");
     if (honeypot) {
       return new Response("OK", { status: 200 });
@@ -20,6 +22,7 @@ export async function action({ request }: ActionFunctionArgs) {
       inquiry: formData.get("inquiry"),
       consent: formData.get("consent") === "on",
       createdAt: new Date(),
+      ipAddress: ipAddress,
     };
 
     const customer = {
@@ -29,24 +32,22 @@ export async function action({ request }: ActionFunctionArgs) {
       department: formData.get("department"),
       email: formData.get("email"),
       updatedAt: new Date(),
+      ipAddress: ipAddress,
     };
 
     console.log("doc", doc);
     await db.collection("inqueries").add(doc);
 
-    // New: Write to "customers" collection using email as the key.
     const customerRef = db
       .collection("customers")
       .doc(customer.email as string);
     const existingCustomerDoc = await customerRef.get();
+
     if (existingCustomerDoc.exists) {
-      // Document exists: update fields without modifying createdAt.
       await customerRef.update({
         ...customer,
-        // keep createdAt from existing document
       });
     } else {
-      // Document does not exist: create with current createdAt.
       await customerRef.set({
         ...customer,
         createdAt: new Date(),
