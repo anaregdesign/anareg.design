@@ -9,10 +9,11 @@ export function InqueryForm() {
         <tbody>
           <tr>
             <td className={labelStyle}>
-              <label>ご氏名</label>
+              <label htmlFor="name">ご氏名</label>
             </td>
             <td className="py-2 px-4">
               <input
+                id="name"
                 type="text"
                 name="name"
                 className="bg-white border border-black p-2 w-full"
@@ -22,10 +23,11 @@ export function InqueryForm() {
           </tr>
           <tr>
             <td className={labelStyle}>
-              <label>ご所属</label>
+              <label htmlFor="affiliation">ご所属</label>
             </td>
             <td className="py-2 px-4">
               <input
+                id="affiliation"
                 type="text"
                 name="affiliation"
                 className="bg-white border border-black p-2 w-full"
@@ -35,10 +37,11 @@ export function InqueryForm() {
           </tr>
           <tr>
             <td className={labelStyle}>
-              <label>部署</label>
+              <label htmlFor="department">部署</label>
             </td>
             <td className="py-2 px-4">
               <input
+                id="department"
                 type="text"
                 name="department"
                 className="bg-white border border-black p-2 w-full"
@@ -48,10 +51,11 @@ export function InqueryForm() {
           </tr>
           <tr>
             <td className={labelStyle}>
-              <label>メールアドレス</label>
+              <label htmlFor="email">メールアドレス</label>
             </td>
             <td className="py-2 px-4">
               <input
+                id="email"
                 type="email"
                 name="email"
                 className="bg-white border border-black p-2 w-full"
@@ -61,10 +65,11 @@ export function InqueryForm() {
           </tr>
           <tr>
             <td className={labelStyle}>
-              <label>お問合せ内容</label>
+              <label htmlFor="inquiry">お問合せ内容</label>
             </td>
             <td className="py-2 px-4">
               <textarea
+                id="inquiry"
                 name="inquiry"
                 rows={10}
                 className="bg-white border border-black p-2 w-full"

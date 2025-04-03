@@ -2,7 +2,6 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import {
-  Banner,
   InqueryButton,
   Divider,
   Header,
@@ -175,7 +174,4 @@ export default function Index() {
       </Section>
     </div>
   );
-}
-function handleScroll() {
-  throw new Error("Function not implemented.");
 }

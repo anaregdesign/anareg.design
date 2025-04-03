@@ -109,10 +109,10 @@ export function InqueryButton({ theme }: { theme?: ColorTheme }) {
   return (
     <div className="inline-block text-center font-mono leading-tight">
       {lines.map((line, index) => (
-        <>
-          <ColofulText key={index}>{line}</ColofulText>
+        <div key={index}>
+          <ColofulText theme={theme}>{line}</ColofulText>
           <br />
-        </>
+        </div>
       ))}
     </div>
   );
