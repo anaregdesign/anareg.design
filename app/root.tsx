@@ -1,5 +1,5 @@
 import { Link, Links, Meta, Outlet, Scripts } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 import { Banner, Divider } from "./components/basic";
@@ -17,7 +17,34 @@ export const links: LinksFunction = () => [
   },
 ];
 
+// Add OpenGraph metadata
+export const meta: MetaFunction = () => {
+  return [
+    { title: "anaregdesign" },
+    { name: "description", content: "anaregdesign official website" },
+    // Open Graph
+    { property: "og:title", content: "anaregdesign" },
+    {
+      property: "og:description",
+      content: "レンタルデータエンジニア ミズカミの個人事務所",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://anareg.design" },
+    { property: "og:image", content: "https://anareg.design/og-image.png" },
+    { property: "og:site_name", content: "anaregdesign" },
+    // Twitter Card
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "anaregdesign" },
+    {
+      name: "twitter:description",
+      content: "レンタルデータエンジニア ミズカミの個人事務所",
+    },
+    { name: "twitter:image", content: "https://anareg.design/og-image.png" },
+  ];
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const measurementId = "G-6NFHEH43G8";
   return (
     <html
       lang="en"
@@ -28,6 +55,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {/* Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${measurementId}');
+            `,
+          }}
+        />
       </head>
       <body className="bg-white text-black">
         <div className="max-w-2xl min-h-80 bg-white mx-auto my-12 p-4">
