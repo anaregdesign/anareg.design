@@ -40,6 +40,21 @@ export function InqueryForm() {
           </tr>
           <tr className="flex flex-col md:table-row">
             <td className={`${labelStyle} md:w-32 md:text-right`}>
+              <label htmlFor="email">ビジネスメールアドレス</label>
+            </td>
+            <td className="py-2 px-4 flex-1">
+              <input
+                id="email"
+                type="email"
+                name="email"
+                className="bg-white border border-black p-2 w-full"
+                placeholder="ビジネスメールアドレス"
+                required
+              />
+            </td>
+          </tr>
+          <tr className="flex flex-col md:table-row">
+            <td className={`${labelStyle} md:w-32 md:text-right`}>
               <label htmlFor="affiliation">ご所属</label>
             </td>
             <td className="py-2 px-4 flex-1">
@@ -64,21 +79,6 @@ export function InqueryForm() {
                 name="department"
                 className="bg-white border border-black p-2 w-full"
                 placeholder="部署"
-                required
-              />
-            </td>
-          </tr>
-          <tr className="flex flex-col md:table-row">
-            <td className={`${labelStyle} md:w-32 md:text-right`}>
-              <label htmlFor="email">ビジネスメールアドレス</label>
-            </td>
-            <td className="py-2 px-4 flex-1">
-              <input
-                id="email"
-                type="email"
-                name="email"
-                className="bg-white border border-black p-2 w-full"
-                placeholder="ビジネスメールアドレス"
                 required
               />
             </td>
