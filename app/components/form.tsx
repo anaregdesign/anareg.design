@@ -1,11 +1,132 @@
 import { Form } from "@remix-run/react";
+import { useState } from "react";
 
-export function InqueryForm() {
+export function InquiryForm() {
+  const [isConfirmingSubmission, setIsConfirmingSubmission] = useState(false);
+  const [formData, setFormData] = useState({
+    lastName: "",
+    firstName: "",
+    email: "",
+    affiliation: "",
+    department: "",
+    inquiry: "",
+    consent: false,
+  });
+
   const labelStyle =
     "py-2 px-4 align-middle whitespace-nowrap w-32 md:text-right";
 
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value, type } = e.target as
+      | HTMLInputElement
+      | HTMLTextAreaElement
+      | HTMLSelectElement;
+    const checked =
+      type === "checkbox" && (e.target as HTMLInputElement).checked;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handlePreview = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsConfirmingSubmission(true);
+  };
+
+  const handleEdit = () => {
+    setIsConfirmingSubmission(false);
+  };
+
+  if (isConfirmingSubmission) {
+    return (
+      <div className="w-full bg-white">
+        <h2 className="text-xl font-bold mb-4 text-center">送信内容の確認</h2>
+        <table className="w-full border-collapse">
+          <tbody>
+            <tr className="flex flex-col md:table-row">
+              <td className={`${labelStyle} md:w-32 md:text-right font-bold`}>
+                姓:
+              </td>
+              <td className="py-2 px-4 flex-1">{formData.lastName}</td>
+            </tr>
+            <tr className="flex flex-col md:table-row">
+              <td className={`${labelStyle} md:w-32 md:text-right font-bold`}>
+                名:
+              </td>
+              <td className="py-2 px-4 flex-1">{formData.firstName}</td>
+            </tr>
+            <tr className="flex flex-col md:table-row">
+              <td className={`${labelStyle} md:w-32 md:text-right font-bold`}>
+                ビジネスメールアドレス:
+              </td>
+              <td className="py-2 px-4 flex-1">{formData.email}</td>
+            </tr>
+            <tr className="flex flex-col md:table-row">
+              <td className={`${labelStyle} md:w-32 md:text-right font-bold`}>
+                ご所属:
+              </td>
+              <td className="py-2 px-4 flex-1">{formData.affiliation}</td>
+            </tr>
+            <tr className="flex flex-col md:table-row">
+              <td className={`${labelStyle} md:w-32 md:text-right font-bold`}>
+                部署:
+              </td>
+              <td className="py-2 px-4 flex-1">{formData.department}</td>
+            </tr>
+            <tr className="flex flex-col md:table-row">
+              <td className={`${labelStyle} md:w-32 md:text-right font-bold`}>
+                お問合せ内容:
+              </td>
+              <td className="py-2 px-4 flex-1 whitespace-pre-wrap">
+                {formData.inquiry}
+              </td>
+            </tr>
+            <tr>
+              <td className="py-4 px-4" colSpan={2}>
+                <div className="flex justify-center gap-4">
+                  <Form action="/api/v1/inquiries" method="POST">
+                    {Object.entries(formData).map(
+                      ([key, value]) =>
+                        (key === "consent" || value !== false) && (
+                          <input
+                            key={key}
+                            type="hidden"
+                            name={key}
+                            value={key === "consent" ? "true" : String(value)}
+                            readOnly
+                          />
+                        )
+                    )}
+                    <button
+                      onClick={handleEdit}
+                      className="m-8 px-4 py-2 bg-gray-300 text-black"
+                    >
+                      修正する
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="m-8 px-4 py-2 bg-blue-500 text-white"
+                    >
+                      送信する
+                    </button>
+                  </Form>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
   return (
-    <Form action="/api/v1/inqueries" method="POST" target="/">
+    <form onSubmit={handlePreview}>
       <table className="w-full border-collapse">
         <tbody>
           <tr className="flex flex-col md:table-row">
@@ -20,6 +141,8 @@ export function InqueryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="姓"
                 required
+                value={formData.lastName}
+                onChange={handleInputChange}
               />
             </td>
           </tr>
@@ -35,6 +158,8 @@ export function InqueryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="名"
                 required
+                value={formData.firstName}
+                onChange={handleInputChange}
               />
             </td>
           </tr>
@@ -50,6 +175,8 @@ export function InqueryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="ビジネスメールアドレス"
                 required
+                value={formData.email}
+                onChange={handleInputChange}
               />
             </td>
           </tr>
@@ -65,6 +192,8 @@ export function InqueryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="ご所属"
                 required
+                value={formData.affiliation}
+                onChange={handleInputChange}
               />
             </td>
           </tr>
@@ -80,6 +209,8 @@ export function InqueryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="部署"
                 required
+                value={formData.department}
+                onChange={handleInputChange}
               />
             </td>
           </tr>
@@ -95,6 +226,8 @@ export function InqueryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="お問合せ内容"
                 required
+                value={formData.inquiry}
+                onChange={handleInputChange}
               />
             </td>
           </tr>
@@ -107,11 +240,27 @@ export function InqueryForm() {
                   id="consent"
                   required
                   className="mr-2 bg-white border-black"
+                  checked={formData.consent}
+                  onChange={handleInputChange}
                 />
                 <label htmlFor="consent" className="text-gray-600 text-center">
-                  データの利用規約に同意する
+                  個人情報の取り扱いに同意する
                 </label>
               </div>
+            </td>
+          </tr>
+          <tr style={{ display: "none" }}>
+            <td>
+              <label htmlFor="website">Website</label>
+            </td>
+            <td>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
             </td>
           </tr>
           <tr>
@@ -120,12 +269,12 @@ export function InqueryForm() {
                 type="submit"
                 className="block mx-auto mt-4 px-4 py-2 bg-blue-500 text-white"
               >
-                送信
+                内容を確認する
               </button>
             </td>
           </tr>
         </tbody>
       </table>
-    </Form>
+    </form>
   );
 }
