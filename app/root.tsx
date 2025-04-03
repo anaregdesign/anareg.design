@@ -1,5 +1,5 @@
 import { Link, Links, Meta, Outlet, Scripts } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 import { Banner, Divider } from "./components/basic";
@@ -16,6 +16,32 @@ export const links: LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
 ];
+
+// Add OpenGraph metadata
+export const meta: MetaFunction = () => {
+  return [
+    { title: "anaregdesign" },
+    { name: "description", content: "anaregdesign official website" },
+    // Open Graph
+    { property: "og:title", content: "anaregdesign" },
+    {
+      property: "og:description",
+      content: "レンタルデータエンジニア ミズカミの個人事務所",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://anareg.design" },
+    { property: "og:image", content: "https://anareg.design/og-image.png" },
+    { property: "og:site_name", content: "anaregdesign" },
+    // Twitter Card
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "anaregdesign" },
+    {
+      name: "twitter:description",
+      content: "レンタルデータエンジニア ミズカミの個人事務所",
+    },
+    { name: "twitter:image", content: "https://anareg.design/og-image.png" },
+  ];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
