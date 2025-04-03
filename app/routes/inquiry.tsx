@@ -9,12 +9,12 @@ export default function Form() {
     <div className="space-y-4 my-8 z-0">
       <Header>お問い合わせフォーム</Header>
       <InquiryForm />
-      <div
-        className="text-center underline text-blue-500 cursor-pointer"
+      <button
+        className="block w-full text-center underline text-blue-500 cursor-pointer bg-transparent border-none"
         onClick={() => setShowTerms(!showTerms)}
       >
         個人情報の取り扱いについて
-      </div>
+      </button>
       {showTerms && (
         <div className="relative">
           <button
