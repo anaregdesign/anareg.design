@@ -48,7 +48,8 @@ export default function Index() {
           の力で、皆様がより多くの事を成し遂げるお手伝いをしています。
         </p>
         <p>
-          簡単な可視化から業務の自動化、マーケティング関連の分析など、些細なことでもお気軽にお問い合わせくださいませ。
+          <ColofulText theme={theme}>レンタルデータエンジニア</ColofulText>
+          として、簡単な可視化から業務の自動化、マーケティング関連の分析など、些細なことでもお気軽にお問い合わせくださいませ。
         </p>
       </Section>
       <StickySection>
@@ -120,7 +121,7 @@ export default function Index() {
       <Section>
         <Header>
           <ColofulText theme={theme}>
-            最新の情報を常に入手できるようにする
+            常に最新の情報を入手できるようにする
           </ColofulText>
         </Header>
         <p>
