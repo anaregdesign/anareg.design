@@ -58,7 +58,7 @@ export default function TermsBody() {
       </section>
 
       <section className="mb-4">
-        <h3 className="font-bold">7. 利用者の権利及び苦情窓口</h3>
+        <h3 className="font-bold">7. 利用者の権利及びご要望の窓口</h3>
         <p className="ml-4">
           利用者は、自己の個人情報に関する開示、訂正、利用停止、削除等を要求する権利があります。これらのご要求につきましては、当サイトのお問い合わせフォームよりお知らせください。合理的な範囲で速やかに対応いたします。
         </p>
