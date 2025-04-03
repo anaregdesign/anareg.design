@@ -1,17 +1,18 @@
 import { Form } from "@remix-run/react";
 
 export function InqueryForm() {
-  const labelStyle = "py-2 px-4 align-middle text-right whitespace-nowrap w-32";
+  const labelStyle =
+    "py-2 px-4 align-middle whitespace-nowrap w-32 md:text-right";
 
   return (
     <Form action="/api/v1/inqueries" method="POST" target="/">
       <table className="w-full border-collapse">
         <tbody>
-          <tr>
-            <td className={labelStyle}>
-              <label htmlFor="name">ご氏名</label>
+          <tr className="flex flex-col md:table-row">
+            <td className={`${labelStyle} md:w-32 md:text-right`}>
+              <label htmlFor="name">氏名</label>
             </td>
-            <td className="py-2 px-4">
+            <td className="py-2 px-4 flex-1">
               <input
                 id="name"
                 type="text"
@@ -21,11 +22,11 @@ export function InqueryForm() {
               />
             </td>
           </tr>
-          <tr>
-            <td className={labelStyle}>
+          <tr className="flex flex-col md:table-row">
+            <td className={`${labelStyle} md:w-32 md:text-right`}>
               <label htmlFor="affiliation">ご所属</label>
             </td>
-            <td className="py-2 px-4">
+            <td className="py-2 px-4 flex-1">
               <input
                 id="affiliation"
                 type="text"
@@ -35,11 +36,11 @@ export function InqueryForm() {
               />
             </td>
           </tr>
-          <tr>
-            <td className={labelStyle}>
+          <tr className="flex flex-col md:table-row">
+            <td className={`${labelStyle} md:w-32 md:text-right`}>
               <label htmlFor="department">部署</label>
             </td>
-            <td className="py-2 px-4">
+            <td className="py-2 px-4 flex-1">
               <input
                 id="department"
                 type="text"
@@ -49,11 +50,11 @@ export function InqueryForm() {
               />
             </td>
           </tr>
-          <tr>
-            <td className={labelStyle}>
-              <label htmlFor="email">メールアドレス</label>
+          <tr className="flex flex-col md:table-row">
+            <td className={`${labelStyle} md:w-32 md:text-right`}>
+              <label htmlFor="email">ビジネスメールアドレス</label>
             </td>
-            <td className="py-2 px-4">
+            <td className="py-2 px-4 flex-1">
               <input
                 id="email"
                 type="email"
@@ -63,11 +64,11 @@ export function InqueryForm() {
               />
             </td>
           </tr>
-          <tr>
-            <td className={labelStyle}>
+          <tr className="flex flex-col md:table-row">
+            <td className={`${labelStyle} md:w-32 md:text-right`}>
               <label htmlFor="inquiry">お問合せ内容</label>
             </td>
-            <td className="py-2 px-4">
+            <td className="py-2 px-4 flex-1">
               <textarea
                 id="inquiry"
                 name="inquiry"
