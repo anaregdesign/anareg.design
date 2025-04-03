@@ -114,6 +114,20 @@ export function InqueryForm() {
               </div>
             </td>
           </tr>
+          <tr style={{ display: "none" }}>
+            <td>
+              <label htmlFor="website">Website</label>
+            </td>
+            <td>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </td>
+          </tr>
           <tr>
             <td className="py-2 px-4" colSpan={2}>
               <button

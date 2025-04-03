@@ -4,6 +4,13 @@ import { db } from "~/services/firebase.server";
 export async function action({ request }: ActionFunctionArgs) {
   try {
     const formData = await request.formData();
+
+    // validate honey pot
+    const honeypot = formData.get("website");
+    if (honeypot) {
+      return new Response("OK", { status: 200 });
+    }
+
     const doc = {
       lastName: formData.get("lastName"),
       firstName: formData.get("firstName"),
