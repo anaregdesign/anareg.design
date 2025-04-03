@@ -52,7 +52,7 @@ export default function Index() {
         </p>
       </Section>
       <StickySection>
-        <Link to="/inquery">
+        <Link to="/inquiry">
           <InqueryButton theme={theme} />
         </Link>
       </StickySection>

@@ -1,12 +1,12 @@
 import { Header, Section } from "~/components/basic";
-import { InqueryForm } from "~/components/form";
+import { InquiryForm } from "~/components/form";
 
 export default function Form() {
   return (
     <div className="space-y-4">
       <Section>
         <Header>お問い合わせフォーム</Header>
-        <InqueryForm />
+        <InquiryForm />
       </Section>
     </div>
   );

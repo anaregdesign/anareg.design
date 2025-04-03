@@ -36,7 +36,7 @@ export async function action({ request }: ActionFunctionArgs) {
     };
 
     console.log("doc", doc);
-    await db.collection("inqueries").add(doc);
+    await db.collection("inquiries").add(doc);
 
     const customerRef = db
       .collection("customers")

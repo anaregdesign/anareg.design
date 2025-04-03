@@ -1,7 +1,7 @@
 import { Form } from "@remix-run/react";
 import { useState } from "react";
 
-export function InqueryForm() {
+export function InquiryForm() {
   const [isConfirmingSubmission, setIsConfirmingSubmission] = useState(false);
   const [formData, setFormData] = useState({
     lastName: "",
@@ -89,7 +89,7 @@ export function InqueryForm() {
             <tr>
               <td className="py-4 px-4" colSpan={2}>
                 <div className="flex justify-center gap-4">
-                  <Form action="/api/v1/inqueries" method="POST">
+                  <Form action="/api/v1/inquiries" method="POST">
                     {Object.entries(formData).map(
                       ([key, value]) =>
                         (key === "consent" || value !== false) && (
