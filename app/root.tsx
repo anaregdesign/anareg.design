@@ -1,13 +1,8 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import { Link, Links, Meta, Outlet, Scripts } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
+import { Banner, Divider } from "./components/basic";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -26,7 +21,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
-      className="bg-white text-black text-lg font-mono leading-relaxed"
+      className="bg-white text-black text-lg font-mono leading-relaxed appearance-none"
     >
       <head>
         <meta charSet="utf-8" />
@@ -36,6 +31,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="bg-white text-black">
         <div className="max-w-2xl min-h-80 bg-white mx-auto my-12 p-4">
+          <Link to="/">
+            <Banner />
+          </Link>
+          <Divider />
           {children}
         </div>
         <Scripts />

@@ -43,7 +43,11 @@ export function Color1({
   children: React.ReactNode;
   theme?: ColorTheme;
 }) {
-  return <span style={{ color: theme.primaryColor }}>{children}</span>;
+  return (
+    <span className="font-bold" style={{ color: theme.primaryColor }}>
+      {children}
+    </span>
+  );
 }
 
 export function Color2({
@@ -53,7 +57,11 @@ export function Color2({
   children: React.ReactNode;
   theme?: ColorTheme;
 }) {
-  return <span style={{ color: theme.secondaryColor }}>{children}</span>;
+  return (
+    <span className="font-bold" style={{ color: theme.secondaryColor }}>
+      {children}
+    </span>
+  );
 }
 
 export function Color3({
@@ -63,7 +71,11 @@ export function Color3({
   children: React.ReactNode;
   theme?: ColorTheme;
 }) {
-  return <span style={{ color: theme.tertiaryColor }}>{children}</span>;
+  return (
+    <span className="font-bold" style={{ color: theme.tertiaryColor }}>
+      {children}
+    </span>
+  );
 }
 
 export function ColofulText({

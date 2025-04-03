@@ -1,20 +1,20 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import {
-  Banner,
   InqueryButton,
   Divider,
   Header,
   Section,
   StickySection,
-} from "~/component/basic";
+} from "~/components/basic";
 import {
   ColofulText,
   Color1,
   Color2,
   Color3,
   themeRepository,
-} from "~/component/theme";
+} from "~/components/theme";
 
 export const meta: MetaFunction = () => {
   return [
@@ -36,8 +36,6 @@ export default function Index() {
 
   return (
     <div>
-      <Banner />
-      <Divider />
       <Section>
         <p>
           <ColofulText theme={theme}>anaregdesign</ColofulText>
@@ -54,7 +52,9 @@ export default function Index() {
         </p>
       </Section>
       <StickySection>
-        <InqueryButton theme={theme} />
+        <Link to="/form">
+          <InqueryButton theme={theme} />
+        </Link>
       </StickySection>
       <Section>
         <Divider />
@@ -83,17 +83,17 @@ export default function Index() {
       <Section>
         <Header>
           <ColofulText theme={theme}>
-            意思決定の分岐点となる情報を特定する
+            判断の分岐点となる情報を特定する
           </ColofulText>
         </Header>
         <p>
-          難しい決断をする時、もしくは顧客に自社を選択してもらうとき、誰でも何かしらの判断基準があるはずです。
+          何かを判断する時、もしくは顧客に自社を選択してもらうとき、誰でも何かしらの判断基準があるはずです。というか、ないなら作るべきです。
         </p>
         <p>
           分析の最初のフェーズでは、その分岐点となる情報を特定するところから入ります。
         </p>
         <p>
-          そして、その情報が最初から手元にあることはすっごく稀なので、その場合このフェーズではその条件を想像で仮置きします。また少しでもサンプルのデータがあれば最近ならそれを生成AIとかでグイーッと引き伸ばしたりします。
+          そして、その情報が最初から手元にあることはすっごく稀で、すぐに手に入らない場合このフェーズではその条件を想像で仮置きします。また少しでもサンプルのデータがあれば最近ならそれを生成AIとかでグイーッと引き伸ばしたりします。
         </p>
         <p>
           もちろん永遠に手に入らないデータを妄想してもしょうがないので、この段階では入手方法もある程度目星をつけておくことが大事です。
@@ -101,11 +101,11 @@ export default function Index() {
       </Section>
       <Section>
         <Header>
-          <ColofulText theme={theme}>意思決定の根拠を明確にする</ColofulText>
+          <ColofulText theme={theme}>判断の根拠を明確にする</ColofulText>
         </Header>
-        <p>実際に集計や可視化を行い、意思決定の根拠を明確にします。</p>
+        <p>実際に集計や可視化を行い、判断の根拠を明確にします。</p>
         <p>
-          具体的には可視化などを通じて、アウトプットが意思決定に十分な情報になる事を確認します
+          具体的には可視化などを通じて、アウトプットが意思決定に十分な根拠になる事を確認します。
         </p>
         <p>
           たとえ、それがダミーデータでもこのフェーズではビビりません。一回分析してみることが大事。
@@ -160,7 +160,7 @@ export default function Index() {
           まず、本業との兼ね合いでクラウドやインフラ、ソフトウェアの選定に携わることができません。
         </p>
         <p>
-          ただクラウドやBI・DataWarehouseとかの簡単なインフラなら自前で調達してたりするので導入後の抽象的なイメージを掴むまでくらいならお手伝いはできると思います。{" "}
+          ただクラウドやBI・DataWarehouse・生成AIとかの簡単なインフラなら自前で調達してたりするので導入後の抽象的なイメージを掴むまでくらいならお手伝いはできると思います。{" "}
         </p>
         <p>
           それから、個人情報や機密情報などの取り扱いについては、入念に法務担当の方と相談させてもらっています。場合によってはお断りすることもあるので悪しからず。
@@ -169,12 +169,9 @@ export default function Index() {
           あと、基本的に本業との兼業という形をとっています。どうしても、本業の方で出張とか、外せない業務があればそちらを優先するのでご理解ください。
         </p>
         <p>
-          実際にご一緒するときは、週1時間程度のお打ち合わせのお時間と簡単な宿題を持ち帰る感じでお仕事しています。
+          実際にご一緒するときは、週1時間程度のお打ち合わせのお時間をいただいて、そこでお互い宿題を持ち帰る感じを想定していますが、ご要望いただければ柔軟に対応します。
         </p>
       </Section>
     </div>
   );
-}
-function handleScroll() {
-  throw new Error("Function not implemented.");
 }
