@@ -33,7 +33,7 @@ export function InqueryForm() {
     });
   };
 
-  const handlePreview = (e) => {
+  const handlePreview = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsConfirmingSubmission(true);
   };
@@ -44,7 +44,7 @@ export function InqueryForm() {
 
   if (isConfirmingSubmission) {
     return (
-      <div className="w-full">
+      <div className="w-full bg-white">
         <h2 className="text-xl font-bold mb-4 text-center">送信内容の確認</h2>
         <table className="w-full border-collapse">
           <tbody>
@@ -89,31 +89,29 @@ export function InqueryForm() {
             <tr>
               <td className="py-4 px-4" colSpan={2}>
                 <div className="flex justify-center gap-4">
-                  <button
-                    onClick={handleEdit}
-                    className="px-4 py-2 bg-gray-300 text-black"
-                  >
-                    修正する
-                  </button>
-                  <Form action="/api/v1/inqueries" method="POST" target="/">
+                  <Form action="/api/v1/inqueries" method="POST">
                     {Object.entries(formData).map(
                       ([key, value]) =>
                         value !== false && (
                           <input
                             key={key}
-                            type={key === "consent" ? "checkbox" : "hidden"}
+                            type="hidden"
                             name={key}
-                            value={
-                              key === "consent" ? undefined : String(value)
-                            }
-                            checked={key === "consent" && Boolean(value)}
+                            value={String(value)}
                             readOnly
                           />
                         )
                     )}
                     <button
+                      onClick={handleEdit}
+                      className="m-8 px-4 py-2 bg-gray-300 text-black"
+                    >
+                      修正する
+                    </button>
+
+                    <button
                       type="submit"
-                      className="px-4 py-2 bg-blue-500 text-white"
+                      className="m-8 px-4 py-2 bg-blue-500 text-white"
                     >
                       送信する
                     </button>

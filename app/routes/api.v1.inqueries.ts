@@ -1,4 +1,4 @@
-import { ActionFunctionArgs } from "@remix-run/node";
+import { ActionFunctionArgs, redirect } from "@remix-run/node";
 import { db } from "~/services/firebase.server";
 
 export async function action({ request }: ActionFunctionArgs) {
@@ -54,7 +54,7 @@ export async function action({ request }: ActionFunctionArgs) {
       });
     }
 
-    return new Response("Success", { status: 200 });
+    return redirect("/complete");
   } catch (error) {
     return new Response("Error", { status: 500 });
   }
