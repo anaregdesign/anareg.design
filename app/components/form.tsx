@@ -109,7 +109,7 @@ export function InqueryForm() {
                   className="mr-2 bg-white border-black"
                 />
                 <label htmlFor="consent" className="text-gray-600 text-center">
-                  データの利用規約に同意する
+                  個人情報の取り扱いに同意する
                 </label>
               </div>
             </td>
