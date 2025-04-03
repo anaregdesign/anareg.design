@@ -1,0 +1,20 @@
+# Dockerビルドコンテキストに不要なファイルを含めないための設定
+
+# Git関連のファイル
+.git
+.gitignore
+
+# node_modulesはコンテナ内で再構築するため不要
+node_modules
+
+# ローカル環境の設定ファイル（必要な場合のみ適宜対応）
+.env
+
+# serviceaccount.jsonはgitignoreで無視されているので、コンテナに入れない
+serviceaccount.json
+
+# ログファイルの除外
+*.log
+
+# macOS固有のファイル
+.DS_Store
