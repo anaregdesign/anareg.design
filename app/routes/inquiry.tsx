@@ -1,4 +1,4 @@
-import { Header, Section } from "~/components/basic";
+import { Header } from "~/components/basic";
 import { InquiryForm } from "~/components/form";
 
 export default function Form() {
