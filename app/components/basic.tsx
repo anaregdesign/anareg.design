@@ -33,10 +33,8 @@ export function Section({ children }: { children: React.ReactNode }) {
       if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        // ビューポート内で見えている部分の高さを計算
         const visibleHeight =
           Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
-        // 要素全体の高さに対する表示割合を新しい透明度として設定
         const newOpacity = Math.min(
           Math.max(visibleHeight / rect.height - 0.3, 0),
           1
