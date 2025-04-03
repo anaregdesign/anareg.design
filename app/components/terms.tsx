@@ -55,6 +55,9 @@ export default function TermsBody() {
         <p className="ml-4">
           利用者の同意がない限り、法令に定める場合や人の生命、身体または財産の保護のために必要な場合を除き、第三者に個人情報を提供することはありません。
         </p>
+        <p className="ml-4">
+          また、個人情報を第三者に提供する場合は、事前に利用者に通知し、同意を得るものとします。
+        </p>
       </section>
 
       <section className="mb-4">
