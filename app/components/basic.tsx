@@ -17,7 +17,7 @@ Y8888D' Y88888P '8888Y' Y888888P  Y888P  VP   V8P
 
   return (
     <div className="text-center">
-      <pre className="inline-block text-left font-mono leading-tight">
+      <pre className="inline-block text-left font-mono leading-tight max-sm:text-[0.6rem]">
         {ascii2line}
       </pre>
     </div>
@@ -35,10 +35,16 @@ export function Section({ children }: { children: React.ReactNode }) {
         const windowHeight = window.innerHeight;
         const visibleHeight =
           Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
-        const newOpacity = Math.min(
-          Math.max(visibleHeight / rect.height - 0.3, 0),
-          1
-        );
+
+        const viewableRatio = visibleHeight / rect.height;
+        let newOpacity = 1;
+        if (viewableRatio < 0.3) {
+          newOpacity = 0;
+        } else if (viewableRatio > 0.8) {
+          newOpacity = 1;
+        } else {
+          newOpacity = (viewableRatio - 0.3) / 0.5;
+        }
         setOpacity(newOpacity);
       }
     };
