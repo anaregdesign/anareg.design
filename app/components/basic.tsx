@@ -17,7 +17,7 @@ Y8888D' Y88888P '8888Y' Y888888P  Y888P  VP   V8P
 
   return (
     <div className="text-center">
-      <pre className="inline-block text-left font-mono leading-tight">
+      <pre className="inline-block text-left font-mono leading-tight max-sm:text-[0.6rem]">
         {ascii2line}
       </pre>
     </div>
