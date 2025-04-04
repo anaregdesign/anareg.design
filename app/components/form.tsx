@@ -141,6 +141,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="姓"
                 required
+                minLength={1}
+                maxLength={50}
                 value={formData.lastName}
                 onChange={handleInputChange}
               />
@@ -158,6 +160,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="名"
                 required
+                minLength={1}
+                maxLength={50}
                 value={formData.firstName}
                 onChange={handleInputChange}
               />
@@ -175,6 +179,7 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="ビジネスメールアドレス"
                 required
+                maxLength={100}
                 value={formData.email}
                 onChange={handleInputChange}
               />
@@ -192,6 +197,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="ご所属"
                 required
+                minLength={2}
+                maxLength={100}
                 value={formData.affiliation}
                 onChange={handleInputChange}
               />
@@ -209,6 +216,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="部署"
                 required
+                minLength={2}
+                maxLength={100}
                 value={formData.department}
                 onChange={handleInputChange}
               />
@@ -226,6 +235,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="お問合せ内容"
                 required
+                minLength={10}
+                maxLength={1000}
                 value={formData.inquiry}
                 onChange={handleInputChange}
               />
