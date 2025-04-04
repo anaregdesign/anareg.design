@@ -1,7 +1,7 @@
 .PHONY: build push deploy
 
 build:
-	docker build -t asia-northeast1-docker.pkg.dev/anaregdesign-455601/anaregdesign-web-service/web:local .
+	docker build --platform linux/amd64 -t asia-northeast1-docker.pkg.dev/anaregdesign-455601/anaregdesign-web-service/web:local .
 
 push:
 	docker push asia-northeast1-docker.pkg.dev/anaregdesign-455601/anaregdesign-web-service/web:local
