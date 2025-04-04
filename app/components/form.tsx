@@ -104,14 +104,14 @@ export function InquiryForm() {
                     )}
                     <button
                       onClick={handleEdit}
-                      className="m-8 px-4 py-2 bg-gray-300 text-black"
+                      className="m-8 px-4 py-2 max-sm:m-2 max-sm:px-2 bg-gray-300 text-black"
                     >
                       修正する
                     </button>
 
                     <button
                       type="submit"
-                      className="m-8 px-4 py-2 bg-blue-500 text-white"
+                      className="m-8 px-4 py-2 max-sm:m-2 max-sm:px-2 bg-blue-500 text-white"
                     >
                       送信する
                     </button>
