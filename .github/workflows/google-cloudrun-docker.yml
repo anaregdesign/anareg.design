@@ -9,6 +9,7 @@ env:
   PROJECT_ID: "anaregdesign-455601"
   REGION: "asia-northeast1"
   SERVICE: "anaregdesign-web-service"
+  DEPLOY_SERVICE_ACCOUNT: "anaregdesign-web-deployer@anaregdesign-455601.iam.gserviceaccount.com"
   WORKLOAD_IDENTITY_PROVIDER: "projects/604272699456/locations/global/workloadIdentityPools/anaregdesign-web-pool/providers/anaregdesign-web-provider"
 
 
@@ -30,6 +31,7 @@ jobs:
         with:
           project_id: "${{ env.PROJECT_ID }}"
           workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
+          service_account: "${{ env.DEPLOY_SERVICE_ACCOUNT }}"
           
       - name: "Docker Auth"
         uses: "docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567" # docker/login-action@v3
