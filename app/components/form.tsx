@@ -104,14 +104,14 @@ export function InquiryForm() {
                     )}
                     <button
                       onClick={handleEdit}
-                      className="m-8 px-4 py-2 bg-gray-300 text-black"
+                      className="m-8 px-4 py-2 max-sm:m-2 max-sm:px-2 bg-gray-300 text-black"
                     >
                       修正する
                     </button>
 
                     <button
                       type="submit"
-                      className="m-8 px-4 py-2 bg-blue-500 text-white"
+                      className="m-8 px-4 py-2 max-sm:m-2 max-sm:px-2 bg-blue-500 text-white"
                     >
                       送信する
                     </button>
@@ -141,6 +141,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="姓"
                 required
+                minLength={1}
+                maxLength={50}
                 value={formData.lastName}
                 onChange={handleInputChange}
               />
@@ -158,6 +160,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="名"
                 required
+                minLength={1}
+                maxLength={50}
                 value={formData.firstName}
                 onChange={handleInputChange}
               />
@@ -175,6 +179,7 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="ビジネスメールアドレス"
                 required
+                maxLength={100}
                 value={formData.email}
                 onChange={handleInputChange}
               />
@@ -192,6 +197,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="ご所属"
                 required
+                minLength={2}
+                maxLength={100}
                 value={formData.affiliation}
                 onChange={handleInputChange}
               />
@@ -209,6 +216,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="部署"
                 required
+                minLength={2}
+                maxLength={100}
                 value={formData.department}
                 onChange={handleInputChange}
               />
@@ -226,6 +235,8 @@ export function InquiryForm() {
                 className="bg-white border border-black p-2 w-full"
                 placeholder="お問合せ内容"
                 required
+                minLength={10}
+                maxLength={1000}
                 value={formData.inquiry}
                 onChange={handleInputChange}
               />
