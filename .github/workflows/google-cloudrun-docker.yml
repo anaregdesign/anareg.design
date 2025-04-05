@@ -9,6 +9,8 @@ env:
   PROJECT_ID: "anaregdesign-455601"
   REGION: "asia-northeast1"
   SERVICE: "anaregdesign-web-service"
+  WORKLOAD_IDENTITY_PROVIDER: "projects/604272699456/locations/global/workloadIdentityPools/anaregdesign-web-pool/providers/anaregdesign-web-provider"
+
 
 jobs:
   deploy:
@@ -26,8 +28,9 @@ jobs:
         name: "Authenticate to Google Cloud"
         uses: "google-github-actions/auth@f112390a2df9932162083945e46d439060d66ec2" # google-github-actions/auth@v2
         with:
-          credentials_json: "${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY}}"
- 
+          project_id: "${{ env.PROJECT_ID }}"
+          workload_identity_provider: "${{ env.WORKLOAD_IDENTITY_PROVIDER }}"
+          
       - name: "Docker Auth"
         uses: "docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567" # docker/login-action@v3
         with:
