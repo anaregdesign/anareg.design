@@ -81,7 +81,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
         <Scripts />
         <footer className="text-center my-4">
-          <ul className="flex space-x-4 justify-center">
+          <ul className="sm:flex space-x-4 justify-center max-sm:w-full">
             <li>適格請求書発行事業者登録番号: T6810853446838 </li>
             <li>© 2025 anaregdesign All rights reserved.</li>
           </ul>
