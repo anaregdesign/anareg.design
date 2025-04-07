@@ -6,7 +6,12 @@ export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
     const xForwardedFor = request.headers.get("x-forwarded-for");
     const xRealIp = request.headers.get("x-real-ip");
-    const ipAddress = xForwardedFor ?? xRealIp ?? null;
+    const ipAddress =
+      (xForwardedFor ? xForwardedFor.split(",")[0].trim() : null) ||
+      xRealIp ||
+      request.headers.get("cf-connecting-ip") ||
+      request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+      null;
 
     const honeypot = formData.get("website");
     if (honeypot) {
@@ -36,7 +41,8 @@ export async function action({ request }: ActionFunctionArgs) {
     };
 
     console.log("doc", doc);
-    await db.collection("inquiries").add(doc);
+    const createdAtKey = doc.createdAt.toISOString();
+    await db.collection("inquiries").doc(createdAtKey).set(doc);
 
     const customerRef = db
       .collection("customers")
