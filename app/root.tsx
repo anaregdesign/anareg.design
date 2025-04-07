@@ -21,25 +21,25 @@ export const links: LinksFunction = () => [
 export const meta: MetaFunction = () => {
   return [
     { title: "anaregdesign" },
-    { name: "description", content: "anaregdesign official website" },
+    { name: "description", content: "データエンジニア ミズカミの個人事務所" },
     // Open Graph
     { property: "og:title", content: "anaregdesign" },
     {
       property: "og:description",
-      content: "レンタルデータエンジニア ミズカミの個人事務所",
+      content: "データエンジニア ミズカミの個人事務所",
     },
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://anareg.design" },
-    { property: "og:image", content: "https://anareg.design/og-image.png" },
+    { property: "og:image", content: "https://anareg.design/ogimage.jpg" },
     { property: "og:site_name", content: "anaregdesign" },
     // Twitter Card
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "anaregdesign" },
     {
       name: "twitter:description",
-      content: "レンタルデータエンジニア ミズカミの個人事務所",
+      content: "データエンジニア ミズカミの個人事務所",
     },
-    { name: "twitter:image", content: "https://anareg.design/og-image.png" },
+    { name: "twitter:image", content: "https://anareg.design/ogimage.jpg" },
   ];
 };
 
