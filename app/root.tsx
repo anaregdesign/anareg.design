@@ -30,7 +30,7 @@ export const meta: MetaFunction = () => {
     },
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://anareg.design" },
-    { property: "og:image", content: "https://anareg.design/ogimage.jpg" },
+    { property: "og:image", content: "/ogimage.jpg" },
     { property: "og:site_name", content: "anaregdesign" },
     // Twitter Card
     { name: "twitter:card", content: "summary_large_image" },
@@ -39,7 +39,11 @@ export const meta: MetaFunction = () => {
       name: "twitter:description",
       content: "データエンジニア ミズカミの個人事務所",
     },
-    { name: "twitter:image", content: "https://anareg.design/ogimage.jpg" },
+    { name: "twitter:image", content: "/ogimage.jpg" },
+    { property: "og:locale", content: "ja_JP" },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { name: "twitter:creator", content: "@anaregdesign" },
   ];
 };
 
