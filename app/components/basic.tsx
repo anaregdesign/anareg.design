@@ -121,3 +121,24 @@ export function InqueryButton({ theme }: { theme?: ColorTheme }) {
     </div>
   );
 }
+
+export function ExampleGraph() {
+  const asciiGraph = ` 性能
+  ↑
+ 60 ┤
+ 50 ┤ ████
+ 40 ┤ ████
+ 30 ┤ ████
+ 20 ┤ ████  ████
+ 10 ┤ ████  ████
+  0 ┼────────────→
+      当社   競合`;
+
+  return (
+    <div className="text-center">
+      <pre className="inline-block text-left font-mono leading-tight max-sm:text-[0.6rem]">
+        {asciiGraph}
+      </pre>
+    </div>
+  );
+}

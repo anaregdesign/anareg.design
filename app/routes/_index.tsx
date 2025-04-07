@@ -7,6 +7,7 @@ import {
   Header,
   Section,
   StickySection,
+  ExampleGraph,
 } from "~/components/basic";
 import {
   ColofulText,
@@ -103,9 +104,11 @@ export default function Index() {
         <Header>
           <ColofulText theme={theme}>判断の根拠を明確にする</ColofulText>
         </Header>
-        <p>実際に集計や可視化を行い、判断の根拠を明確にします。</p>
         <p>
-          具体的には可視化などを通じて、アウトプットが意思決定に十分な根拠になる事を確認します。
+          可視化などを通じて、アウトプットが意思決定に十分な根拠になる事を確認します。例えばこんなグラフです。
+        </p>
+        <p>
+          <ExampleGraph />
         </p>
         <p>
           たとえ、それがダミーデータでもこのフェーズではビビりません。一回分析してみることが大事。
