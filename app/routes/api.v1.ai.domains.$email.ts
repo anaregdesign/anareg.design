@@ -10,7 +10,6 @@ const systemMessage = `
   <constraints>
     <constraint>会社名以外の情報は出力しない</constraint>
     <constraint>推測できない場合は「」と返す</constraint>
-    <constraint>gmail.comやyahoo.co.jpなどの一般的なドメイン名の場合は「個人」とする</constraint>
   </constraints>
   <notes>ドメイン名から一般的な会社名を推測するが、確証がない場合は過度な推測を避ける</notes>
 </prompt>`;
