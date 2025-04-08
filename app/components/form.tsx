@@ -1,7 +1,9 @@
 import { Form } from "@remix-run/react";
 import { useState } from "react";
+import { debounce, isEmail } from "~/lib/util";
 
 export function InquiryForm() {
+  const [affiliation, setAffiliation] = useState("");
   const [isConfirmingSubmission, setIsConfirmingSubmission] = useState(false);
   const [formData, setFormData] = useState({
     lastName: "",
@@ -181,7 +183,26 @@ export function InquiryForm() {
                 required
                 maxLength={100}
                 value={formData.email}
-                onChange={handleInputChange}
+                onChange={async (e) => {
+                  handleInputChange(e);
+
+                  debounce(async () => {
+                    if (isEmail(formData.email)) {
+                      const res = await fetch(
+                        `/api/v1/ai/domains/${formData.email}`
+                      );
+                      if (!res.ok) {
+                        return;
+                      }
+                      const data = await res.json();
+                      setAffiliation(data.affiliation);
+                      setFormData((prev) => ({
+                        ...prev,
+                        affiliation: data.affiliation,
+                      }));
+                    }
+                  }, 500)();
+                }}
               />
             </td>
           </tr>
