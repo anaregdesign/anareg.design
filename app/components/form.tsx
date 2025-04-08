@@ -1,7 +1,9 @@
 import { Form } from "@remix-run/react";
 import { useState } from "react";
+import { isEmail } from "~/lib/util";
 
 export function InquiryForm() {
+  const [affiliation, setAffiliation] = useState("affiliation");
   const [isConfirmingSubmission, setIsConfirmingSubmission] = useState(false);
   const [formData, setFormData] = useState({
     lastName: "",
@@ -252,7 +254,12 @@ export function InquiryForm() {
                   required
                   className="mr-2 bg-white border-black"
                   checked={formData.consent}
-                  onChange={handleInputChange}
+                  onChange={(e) => {
+                    handleInputChange(e);
+                    if (isEmail(formData.email)) {
+                      const body = { email: formData.email };
+                    }
+                  }}
                 />
                 <label htmlFor="consent" className="text-gray-600 text-center">
                   個人情報の取り扱いに同意する
