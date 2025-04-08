@@ -10,18 +10,18 @@ const systemMessage = `
   <constraints>
     <constraint>会社名以外の情報は出力しない</constraint>
     <constraint>株式会社や有限会社などの情報は極力つける。</constraint>
-    <constraint>推測できない場合は「不明」と返す</constraint>
+    <constraint>推測できない場合は「」と返す</constraint>
   </constraints>
   <notes>ドメイン名から一般的な会社名を推測するが、確証がない場合は過度な推測を避ける</notes>
 </prompt>`;
 
 export async function action({ request }: ActionFunctionArgs) {
-    const body = await request.json();
-    const email = body.email;
+  const body = await request.json();
+  const email = body.email;
 
-    const response = await ai.generate({
-        system: systemMessage,
-        prompt: email,
-    });
-    return Response.json({status: response})
+  const response = await ai.generate({
+    system: systemMessage,
+    prompt: email,
+  });
+  return Response.json({ status: response });
 }
