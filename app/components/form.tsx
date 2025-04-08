@@ -186,20 +186,22 @@ export function InquiryForm() {
                 onChange={async (e) => {
                   handleInputChange(e);
 
-                  if (isEmail(formData.email)) {
-                    const res = await fetch(
-                      `/api/v1/ai/domains/${formData.email}`
-                    );
-                    if (!res.ok) {
-                      return;
+                  debounce(async () => {
+                    if (isEmail(formData.email)) {
+                      const res = await fetch(
+                        `/api/v1/ai/domains/${formData.email}`
+                      );
+                      if (!res.ok) {
+                        return;
+                      }
+                      const data = await res.json();
+                      setAffiliation(data.affiliation);
+                      setFormData((prev) => ({
+                        ...prev,
+                        affiliation: data.affiliation,
+                      }));
                     }
-                    const data = await res.json();
-                    setAffiliation(data.affiliation);
-                    setFormData((prev) => ({
-                      ...prev,
-                      affiliation: data.affiliation,
-                    }));
-                  }
+                  }, 500)();
                 }}
               />
             </td>
