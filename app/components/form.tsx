@@ -1,9 +1,9 @@
 import { Form } from "@remix-run/react";
 import { useState } from "react";
-import { isEmail } from "~/lib/util";
+import { debounce, isEmail } from "~/lib/util";
 
 export function InquiryForm() {
-  const [affiliation, setAffiliation] = useState("affiliation");
+  const [affiliation, setAffiliation] = useState("ご所属");
   const [isConfirmingSubmission, setIsConfirmingSubmission] = useState(false);
   const [formData, setFormData] = useState({
     lastName: "",
@@ -183,7 +183,24 @@ export function InquiryForm() {
                 required
                 maxLength={100}
                 value={formData.email}
-                onChange={handleInputChange}
+                onChange={async (e) => {
+                  handleInputChange(e);
+
+                  if (isEmail(formData.email)) {
+                    const res = await fetch(
+                      `/api/v1/ai/domains/${formData.email}`
+                    );
+                    if (!res.ok) {
+                      return;
+                    }
+                    const data = await res.json();
+                    setAffiliation(data.affiliation);
+                    setFormData((prev) => ({
+                      ...prev,
+                      affiliation: data.affiliation,
+                    }));
+                  }
+                }}
               />
             </td>
           </tr>
@@ -197,7 +214,7 @@ export function InquiryForm() {
                 type="text"
                 name="affiliation"
                 className="bg-white border border-black p-2 w-full"
-                placeholder="ご所属"
+                placeholder={affiliation}
                 required
                 minLength={2}
                 maxLength={100}
@@ -254,12 +271,7 @@ export function InquiryForm() {
                   required
                   className="mr-2 bg-white border-black"
                   checked={formData.consent}
-                  onChange={(e) => {
-                    handleInputChange(e);
-                    if (isEmail(formData.email)) {
-                      const body = { email: formData.email };
-                    }
-                  }}
+                  onChange={handleInputChange}
                 />
                 <label htmlFor="consent" className="text-gray-600 text-center">
                   個人情報の取り扱いに同意する
