@@ -3,7 +3,7 @@ import { useState } from "react";
 import { debounce, isEmail } from "~/lib/util";
 
 export function InquiryForm() {
-  const [affiliation, setAffiliation] = useState("ご所属");
+  const [affiliation, setAffiliation] = useState("");
   const [isConfirmingSubmission, setIsConfirmingSubmission] = useState(false);
   const [formData, setFormData] = useState({
     lastName: "",
@@ -201,7 +201,7 @@ export function InquiryForm() {
                         affiliation: data.affiliation,
                       }));
                     }
-                  }, 1000)();
+                  }, 500)();
                 }}
               />
             </td>
@@ -216,7 +216,7 @@ export function InquiryForm() {
                 type="text"
                 name="affiliation"
                 className="bg-white border border-black p-2 w-full"
-                placeholder={affiliation}
+                placeholder="ご所属"
                 required
                 minLength={2}
                 maxLength={100}
