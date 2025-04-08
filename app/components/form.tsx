@@ -201,7 +201,7 @@ export function InquiryForm() {
                         affiliation: data.affiliation,
                       }));
                     }
-                  }, 500)();
+                  }, 1000)();
                 }}
               />
             </td>
