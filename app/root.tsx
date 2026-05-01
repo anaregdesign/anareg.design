@@ -1,5 +1,6 @@
-import { Link, Links, Meta, Outlet, Scripts } from "@remix-run/react";
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { Link, Links, Meta, Outlet, Scripts } from "react-router";
+import type { LinksFunction, MetaFunction } from "react-router";
+import type { ReactNode } from "react";
 
 import "./tailwind.css";
 import { Banner, Divider } from "./components/basic";
@@ -47,7 +48,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   const measurementId = "G-6NFHEH43G8";
   return (
     <html

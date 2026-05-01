@@ -3,13 +3,13 @@ export function isEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
-export function debounce<Func extends (...args: any[]) => void | Promise<void>>(
-  func: Func,
+export function debounce<Args extends unknown[]>(
+  func: (...args: Args) => void | Promise<void>,
   delay: number
 ) {
   let timer: ReturnType<typeof setTimeout>;
 
-  return (...args: Parameters<Func>) => {
+  return (...args: Args) => {
     clearTimeout(timer);
     timer = setTimeout(async () => {
       await func(...args);

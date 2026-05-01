@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export class ColorTheme {
   primaryColor: string;
   secondaryColor: string;
@@ -40,7 +42,7 @@ export function Color1({
   children,
   theme = themeRepository.themes.contrastTheme,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   theme?: ColorTheme;
 }) {
   return (
@@ -54,7 +56,7 @@ export function Color2({
   children,
   theme = themeRepository.themes.contrastTheme,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   theme?: ColorTheme;
 }) {
   return (
@@ -68,7 +70,7 @@ export function Color3({
   children,
   theme = themeRepository.themes.contrastTheme,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   theme?: ColorTheme;
 }) {
   return (
@@ -82,7 +84,7 @@ export function ColofulText({
   children,
   theme = themeRepository.themes.contrastTheme,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   theme?: ColorTheme;
 }) {
   // If children is not a string, fallback to original behavior.
@@ -94,17 +96,8 @@ export function ColofulText({
     theme.secondaryColor,
     theme.tertiaryColor,
   ];
-  let prevIndex: number | null = null;
   const coloredCharacters = children.split("").map((char, i) => {
-    let colorIndex;
-    do {
-      colorIndex = Math.floor(Math.random() * colors.length);
-    } while (
-      prevIndex !== null &&
-      colorIndex === prevIndex &&
-      colors.length > 1
-    );
-    prevIndex = colorIndex;
+    const colorIndex = i % colors.length;
     return (
       <span className="font-bold" key={i} style={{ color: colors[colorIndex] }}>
         {char}

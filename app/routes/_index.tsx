@@ -1,6 +1,6 @@
-import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
+import type { MetaFunction } from "react-router";
 import {
   InqueryButton,
   Divider,
@@ -163,7 +163,7 @@ export default function Index() {
           この辺りではプログラミングとかソフトウェアの力を使うんだけど、経験豊富なデータエンジニアのミズカミなら最高戦力として機能します。
         </p>
         <p>
-          実際にこのサイトもnodejs/remix/reactで出来てるしね、プログラミングも結構得意です。
+          実際にこのサイトもnodejs/react-router/reactで出来てるしね、プログラミングも結構得意です。
         </p>
       </Section>
       <Section>

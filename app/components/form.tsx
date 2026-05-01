@@ -1,9 +1,8 @@
-import { Form } from "@remix-run/react";
 import { useState } from "react";
+import { Form } from "react-router";
 import { debounce, isEmail } from "~/lib/util";
 
 export function InquiryForm() {
-  const [affiliation, setAffiliation] = useState("");
   const [isConfirmingSubmission, setIsConfirmingSubmission] = useState(false);
   const [formData, setFormData] = useState({
     lastName: "",
@@ -195,7 +194,6 @@ export function InquiryForm() {
                         return;
                       }
                       const data = await res.json();
-                      setAffiliation(data.affiliation);
                       setFormData((prev) => ({
                         ...prev,
                         affiliation: data.affiliation,
