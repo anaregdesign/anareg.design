@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs } from "react-router";
-import { ai } from "~/services/ai.gemini";
+import { generateText } from "~/services/ai.gemini";
 
 const systemMessage = `
 <prompt>
@@ -15,18 +15,15 @@ const systemMessage = `
 </prompt>`;
 
 export async function loader({ params }: LoaderFunctionArgs) {
-  const response = await ai.generate({
+  const affiliation = await generateText({
     system: systemMessage,
-    prompt: params.email,
-    config: {
-      temperature: 0.0,
-      maxOutputTokens: 50,
-    },
+    prompt: params.email ?? "",
+    temperature: 0.0,
+    maxOutputTokens: 50,
   });
-  const affiliation = response.message?.content[0].text;
   if (!affiliation) {
     return new Response("No affiliation found", { status: 404 });
   }
 
-  return Response.json({ affiliation });
+  return Response.json({ affiliation: affiliation.trim() });
 }

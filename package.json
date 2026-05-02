@@ -12,11 +12,10 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@genkit-ai/google-genai": "^1.33.0",
+    "@google-cloud/firestore": "^8.5.0",
+    "@google/genai": "^1.51.0",
     "@react-router/node": "^7.14.2",
     "@react-router/serve": "^7.14.2",
-    "firebase-admin": "^13.8.0",
-    "genkit": "^1.33.0",
     "isbot": "^5.1.39",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",

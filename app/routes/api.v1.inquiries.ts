@@ -1,6 +1,6 @@
 import { redirect } from "react-router";
 import type { ActionFunctionArgs } from "react-router";
-import { db } from "~/services/firebase.server";
+import { db } from "~/services/firestore.server";
 
 export async function action({ request }: ActionFunctionArgs) {
   try {
