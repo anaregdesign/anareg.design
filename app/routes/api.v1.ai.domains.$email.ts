@@ -1,29 +1,33 @@
 import type { LoaderFunctionArgs } from "react-router";
-import { generateText } from "~/services/ai.gemini";
 
-const systemMessage = `
-<prompt>
-  <task>メールアドレスを受け取る</task>
-  <instruction>メールアドレスのドメイン名部分を抽出する</instruction>
-  <objective>ドメイン名から会社の日本での登記場の正式名称を取得する</objective>
-  <output>会社名のみを返す</output>
-  <constraints>
-    <constraint>会社名以外の情報は出力しない</constraint>
-    <constraint>推測できない場合は「」と返す</constraint>
-  </constraints>
-  <notes>ドメイン名から一般的な会社名を推測するが、確証がない場合は過度な推測を避ける</notes>
-</prompt>`;
+import { geminiTextGenerationGateway } from "~/lib/server/infrastructure/gateways/gemini-text-generation-gateway.server";
+import {
+  resolveAffiliationFromEmail,
+  ResolveAffiliationError,
+} from "~/lib/server/usecase/affiliation/resolve-affiliation";
 
 export async function loader({ params }: LoaderFunctionArgs) {
-  const affiliation = await generateText({
-    system: systemMessage,
-    prompt: params.email ?? "",
-    temperature: 0.0,
-    maxOutputTokens: 50,
-  });
-  if (!affiliation) {
-    return new Response("No affiliation found", { status: 404 });
-  }
+  try {
+    const affiliation = await resolveAffiliationFromEmail({
+      email: params.email,
+      gateway: geminiTextGenerationGateway,
+    });
 
-  return Response.json({ affiliation: affiliation.trim() });
+    if (!affiliation) {
+      return new Response("No affiliation found", { status: 404 });
+    }
+
+    return Response.json({ affiliation });
+  } catch (error) {
+    if (error instanceof ResolveAffiliationError) {
+      return new Response(
+        error.code === "INVALID_EMAIL" ? "Invalid email" : "Gateway error",
+        {
+          status: error.code === "INVALID_EMAIL" ? 400 : 502,
+        },
+      );
+    }
+
+    return new Response("Error", { status: 500 });
+  }
 }

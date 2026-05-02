@@ -11,6 +11,15 @@ npm ci
 npm run dev
 ```
 
+Run the LP quality gate before release:
+
+```sh
+npm run quality
+```
+
+The gate checks type generation, TypeScript, ESLint, production build, public LP
+routes, core SEO assets, health response, and controlled invalid input behavior.
+
 ## Deployment
 
 First, build your app for production:

@@ -7,6 +7,7 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "quality": "node scripts/quality-gate.mjs",
     "start": "react-router-serve ./build/server/index.js",
     "start:docker": "docker build -t anaregdesign-web:local . && docker run -p 8080:8080 anaregdesign-web:local",
     "typecheck": "react-router typegen && tsc"

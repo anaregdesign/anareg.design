@@ -1,0 +1,61 @@
+.button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.buttonPrimary {
+  background: oklch(62.3% 0.214 259.815);
+  color: #fff;
+}
+
+.buttonSecondary {
+  background: oklch(87.2% 0.01 258.338);
+  color: #000;
+}
+
+.buttonLink {
+  background: transparent;
+  color: oklch(62.3% 0.214 259.815);
+  text-decoration: underline;
+}
+
+.buttonIcon {
+  background: transparent;
+  color: oklch(55.1% 0.027 264.364);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.buttonIcon:hover {
+  color: oklch(37.3% 0.034 259.733);
+}
+
+.buttonRegular {
+  padding: 0.5rem 1rem;
+}
+
+.buttonSpacious {
+  margin: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.buttonBlock {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.buttonCentered {
+  display: block;
+  margin: 1rem auto 0;
+}
+
+@media (max-width: 639.98px) {
+  .buttonSpacious {
+    margin: 0.5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}

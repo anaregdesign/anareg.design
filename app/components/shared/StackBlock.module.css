@@ -1,0 +1,9 @@
+.stackBlock {
+  margin: 2rem 0;
+  z-index: 0;
+}
+
+:where(.stackBlock > :not(:last-child)) {
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+}

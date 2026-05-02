@@ -1,0 +1,30 @@
+.documentTitle {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.documentSection {
+  margin-bottom: 1rem;
+}
+
+.documentHeading {
+  font-weight: 700;
+}
+
+.documentParagraph {
+  margin-left: 1rem;
+}
+
+.documentParagraphSpaced {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.documentList {
+  margin-left: 2rem;
+  padding: 0;
+  list-style-type: disc;
+}

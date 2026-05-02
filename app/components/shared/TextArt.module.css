@@ -1,0 +1,18 @@
+.centered {
+  text-align: center;
+}
+
+.textArt {
+  display: inline-block;
+  text-align: left;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  line-height: 1.25;
+}
+
+@media (max-width: 639.98px) {
+  .textArt {
+    font-size: 0.6rem;
+  }
+}

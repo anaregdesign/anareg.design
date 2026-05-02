@@ -1,4 +1,4 @@
-import TermsBody from "~/components/terms";
+import { TermsBody } from "~/components/terms/TermsBody";
 
 export default function TermOfUse() {
   return (

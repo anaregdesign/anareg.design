@@ -67,9 +67,10 @@ export default config(
       "*.config.{js,ts}",
       "vite.config.ts",
       "react-router.config.ts",
+      "scripts/**/*.{js,mjs}",
     ],
     languageOptions: {
       globals: globals.node,
     },
-  }
+  },
 );

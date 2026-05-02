@@ -1,0 +1,91 @@
+.surface {
+  width: 100%;
+  background: #fff;
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.fieldTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelCell {
+  width: 8rem;
+  padding: 0.5rem 1rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.fieldCell {
+  flex: 1 1 0%;
+  padding: 0.5rem 1rem;
+}
+
+.cell {
+  padding: 0.5rem 1rem;
+}
+
+.actionsCell {
+  padding: 1rem;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.preWrap {
+  white-space: pre-wrap;
+}
+
+.control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.inlineCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  margin-right: 0.5rem;
+  border-color: #000;
+  background: #fff;
+}
+
+.mutedLabel {
+  color: oklch(44.6% 0.03 256.802);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .fieldRow {
+    display: table-row;
+  }
+
+  .labelCell {
+    width: 8rem;
+    text-align: right;
+  }
+}

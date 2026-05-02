@@ -3,8 +3,25 @@ import type { LinksFunction, MetaFunction } from "react-router";
 import type { ReactNode } from "react";
 
 import "./styles/global.css";
-import { Banner, Divider } from "./components/basic";
+import { Divider } from "./components/shared/Divider";
+import { TextArt } from "./components/shared/TextArt";
 import styles from "./root.module.css";
+
+const brandBanner = `
+ .d8b.  d8b   db  .d8b.  d8888b. d88888b  d888b
+d8' '8b 888o  88 d8' '8b 88  '8D 88'     88' Y8b
+88ooo88 88V8o 88 88ooo88 88oobY' 88ooooo 88
+88~~~88 88 V8o88 88~~~88 88 8b   88~~~~~ 88  ooo
+88   88 88  V888 88   88 88 '88. 88.     88. ~8~
+YP   YP VP   V8P YP   YP 88   YD Y88888P  Y888P
+
+d8888b. d88888b .d8888. d888888b  d888b  d8b   db
+88  '8D 88'     88'  YP   '88'   88' Y8b 888o  88
+88   88 88ooooo '8bo.      88    88      88V8o 88
+88   88 88~~~~~   'Y8b.    88    88  ooo 88 V8o88
+88  .8D 88.     db   8D   .88.   88. ~8~ 88  V888
+Y8888D' Y88888P '8888Y' Y888888P  Y888P  VP   V8P
+    `;
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -77,7 +94,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <body className={styles.body}>
         <div className={styles.pageShell}>
           <Link to="/">
-            <Banner />
+            <TextArt>{brandBanner}</TextArt>
           </Link>
           <Divider />
           {children}
