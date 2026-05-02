@@ -2,8 +2,9 @@ import { Link, Links, Meta, Outlet, Scripts } from "react-router";
 import type { LinksFunction, MetaFunction } from "react-router";
 import type { ReactNode } from "react";
 
-import "./tailwind.css";
+import "./styles/global.css";
 import { Banner, Divider } from "./components/basic";
+import styles from "./root.module.css";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -51,10 +52,7 @@ export const meta: MetaFunction = () => {
 export function Layout({ children }: { children: ReactNode }) {
   const measurementId = "G-6NFHEH43G8";
   return (
-    <html
-      lang="en"
-      className="bg-white text-black text-lg font-mono leading-relaxed appearance-none"
-    >
+    <html lang="en" className={styles.document}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -76,8 +74,8 @@ export function Layout({ children }: { children: ReactNode }) {
           }}
         />
       </head>
-      <body className="bg-white text-black">
-        <div className="max-w-2xl min-h-80 bg-white mx-auto my-12 p-4">
+      <body className={styles.body}>
+        <div className={styles.pageShell}>
           <Link to="/">
             <Banner />
           </Link>
@@ -85,8 +83,8 @@ export function Layout({ children }: { children: ReactNode }) {
           {children}
         </div>
         <Scripts />
-        <footer className="text-center my-4">
-          <ul className="sm:flex space-x-4 justify-center max-sm:w-full">
+        <footer className={styles.footer}>
+          <ul className={styles.footerList}>
             <li>適格請求書発行事業者登録番号: T6810853446838 </li>
             <li>© 2025 anaregdesign All rights reserved.</li>
           </ul>

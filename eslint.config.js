@@ -66,7 +66,6 @@ export default config(
     files: [
       "*.config.{js,ts}",
       "vite.config.ts",
-      "tailwind.config.ts",
       "react-router.config.ts",
     ],
     languageOptions: {

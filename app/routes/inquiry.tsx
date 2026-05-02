@@ -1,32 +1,31 @@
 import { useState } from "react";
 import { Header } from "~/components/basic";
 import { InquiryForm } from "~/components/form";
+import { Button, CloseButton, RelativePanel, StackBlock } from "~/components/ui";
 import TermOfUse from "./terms";
 
 export default function Form() {
   const [showTerms, setShowTerms] = useState(false);
   return (
-    <div className="space-y-4 my-8 z-0">
+    <StackBlock>
       <Header>お問い合わせフォーム</Header>
       <InquiryForm />
-      <button
-        className="block w-full text-center underline text-blue-500 cursor-pointer bg-transparent border-none"
+      <Button
+        block
+        density="plain"
         onClick={() => setShowTerms(!showTerms)}
+        variant="link"
       >
         個人情報の取り扱いについて
-      </button>
+      </Button>
       {showTerms && (
-        <div className="relative">
-          <button
-            onClick={() => setShowTerms(false)}
-            className="absolute top-0 right-0 text-gray-500 hover:text-gray-700 text-2xl font-bold"
-            aria-label="Close"
-          >
+        <RelativePanel>
+          <CloseButton onClick={() => setShowTerms(false)}>
             ✕
-          </button>
+          </CloseButton>
           <TermOfUse />
-        </div>
+        </RelativePanel>
       )}
-    </div>
+    </StackBlock>
   );
 }

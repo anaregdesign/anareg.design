@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import styles from "./theme.module.css";
+
 export class ColorTheme {
   primaryColor: string;
   secondaryColor: string;
@@ -46,7 +48,7 @@ export function Color1({
   theme?: ColorTheme;
 }) {
   return (
-    <span className="font-bold" style={{ color: theme.primaryColor }}>
+    <span className={styles.bold} style={{ color: theme.primaryColor }}>
       {children}
     </span>
   );
@@ -60,7 +62,7 @@ export function Color2({
   theme?: ColorTheme;
 }) {
   return (
-    <span className="font-bold" style={{ color: theme.secondaryColor }}>
+    <span className={styles.bold} style={{ color: theme.secondaryColor }}>
       {children}
     </span>
   );
@@ -74,7 +76,7 @@ export function Color3({
   theme?: ColorTheme;
 }) {
   return (
-    <span className="font-bold" style={{ color: theme.tertiaryColor }}>
+    <span className={styles.bold} style={{ color: theme.tertiaryColor }}>
       {children}
     </span>
   );
@@ -99,7 +101,11 @@ export function ColofulText({
   const coloredCharacters = children.split("").map((char, i) => {
     const colorIndex = i % colors.length;
     return (
-      <span className="font-bold" key={i} style={{ color: colors[colorIndex] }}>
+      <span
+        className={styles.bold}
+        key={i}
+        style={{ color: colors[colorIndex] }}
+      >
         {char}
       </span>
     );

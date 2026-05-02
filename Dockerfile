@@ -3,7 +3,7 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 
 COPY package.json package-lock.json tsconfig.json ./
-COPY tailwind.config.ts vite.config.ts react-router.config.ts ./
+COPY vite.config.ts react-router.config.ts ./
 
 COPY app/ app/
 

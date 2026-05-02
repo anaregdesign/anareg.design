@@ -1,3 +1,9 @@
+import { useState, useEffect, useRef } from "react";
+
+import styles from "./basic.module.css";
+import { ColofulText, ColorTheme } from "./theme";
+import { TextArt } from "./ui";
+
 export function Banner() {
   const ascii2line = `
  .d8b.  d8b   db  .d8b.  d8888b. d88888b  d888b
@@ -15,13 +21,7 @@ d8888b. d88888b .d8888. d888888b  d888b  d8b   db
 Y8888D' Y88888P '8888Y' Y888888P  Y888P  VP   V8P
     `;
 
-  return (
-    <div className="text-center">
-      <pre className="inline-block text-left font-mono leading-tight max-sm:text-[0.6rem]">
-        {ascii2line}
-      </pre>
-    </div>
-  );
+  return <TextArt>{ascii2line}</TextArt>;
 }
 
 export function Section({ children }: { children: React.ReactNode }) {
@@ -55,22 +55,15 @@ export function Section({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div ref={ref} className="space-y-4 my-8 z-0" style={{ opacity }}>
+    <div ref={ref} className={styles.section} style={{ opacity }}>
       {children}
     </div>
   );
 }
 
 export function StickySection({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="sticky top-0 bg-white z-50 py-10 text-center [mask-image:linear-gradient(to_bottom,white_60%,transparent_100%)]">
-      {children}
-    </div>
-  );
+  return <div className={styles.stickySection}>{children}</div>;
 }
-
-import { useState, useEffect, useRef } from "react";
-import { ColofulText, ColorTheme } from "./theme";
 
 export function Divider() {
   const boxRef = useRef<HTMLDivElement>(null);
@@ -91,7 +84,7 @@ export function Divider() {
   }, []);
 
   return (
-    <div ref={boxRef} className="text-center my-4">
+    <div ref={boxRef} className={styles.divider}>
       {"=".repeat(count)}
     </div>
   );
@@ -99,8 +92,8 @@ export function Divider() {
 
 export function Header({ children }: { children: React.ReactNode }) {
   return (
-    <div className="text-center mt-8 mb-4">
-      <h1 className="text-lg font-normal">{children}</h1>
+    <div className={styles.header}>
+      <h1 className={styles.headerTitle}>{children}</h1>
     </div>
   );
 }
@@ -111,7 +104,7 @@ export function InqueryButton({ theme }: { theme?: ColorTheme }) {
 +===================+`;
   const lines = button.split("\n");
   return (
-    <div className="inline-block text-center font-mono leading-tight">
+    <div className={styles.inquiryButton}>
       {lines.map((line, index) => (
         <div key={index}>
           <ColofulText theme={theme}>{line}</ColofulText>
@@ -134,11 +127,5 @@ export function ExampleGraph() {
   0 ┼────────────→
       当社   競合`;
 
-  return (
-    <div className="text-center">
-      <pre className="inline-block text-left font-mono leading-tight max-sm:text-[0.6rem]">
-        {asciiGraph}
-      </pre>
-    </div>
-  );
+  return <TextArt>{asciiGraph}</TextArt>;
 }

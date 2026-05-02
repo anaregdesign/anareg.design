@@ -38,4 +38,4 @@ Make sure to deploy the output of `npm run build`
 
 ## Styling
 
-This app uses [Tailwind CSS](https://tailwindcss.com/) through the Vite plugin.
+This app uses CSS Modules and a small global stylesheet.
