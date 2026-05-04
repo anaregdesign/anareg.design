@@ -15,3 +15,4 @@ The web app is a React Router framework mode application built with Vite and dep
 - Component-specific styles should live next to their component or route as `*.module.css`.
 - Global element defaults should stay in `app/styles/global.css`.
 - Build output must not depend on Tailwind directives, Tailwind config, or Tailwind Vite plugins.
+- Inquiry form client state must track whether the current affiliation was manually entered or automated so delayed resolution preserves manual input while allowing automated values to refresh after email changes.

@@ -1,5 +1,6 @@
 import type {
   AffiliationStatus,
+  AffiliationValueSource,
   InquiryFormFieldName,
   InquiryFormState,
 } from "./state";
@@ -29,6 +30,10 @@ export function inquiryFormReducer(
         },
         affiliationStatus:
           action.name === "email" ? "idle" : state.affiliationStatus,
+        affiliationValueSource:
+          action.name === "affiliation" && typeof action.value === "string"
+            ? getManualAffiliationSource(action.value)
+            : state.affiliationValueSource,
       };
     case "previewRequested":
       return {
@@ -46,6 +51,16 @@ export function inquiryFormReducer(
         affiliationStatus: action.status,
       };
     case "affiliationResolved":
+      if (
+        state.affiliationValueSource === "manual" &&
+        state.fields.affiliation.trim()
+      ) {
+        return {
+          ...state,
+          affiliationStatus: "resolved",
+        };
+      }
+
       return {
         ...state,
         affiliationStatus: "resolved",
@@ -53,6 +68,11 @@ export function inquiryFormReducer(
           ...state.fields,
           affiliation: action.affiliation,
         },
+        affiliationValueSource: "resolved",
       };
   }
+}
+
+function getManualAffiliationSource(value: string): AffiliationValueSource {
+  return value.trim() ? "manual" : "empty";
 }
