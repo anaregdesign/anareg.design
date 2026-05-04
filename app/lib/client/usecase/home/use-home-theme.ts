@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { themeRepository } from "./theme-repository";
+import { getRandomHomeTheme } from "./home-theme";
 
 export function useHomeTheme() {
-  const [theme, setTheme] = useState(themeRepository.getRandomTheme());
+  const [theme, setTheme] = useState(getRandomHomeTheme());
 
   useEffect(() => {
     const handleScroll = () => {
-      setTheme(themeRepository.getRandomTheme());
+      setTheme(getRandomHomeTheme());
     };
 
     window.addEventListener("scroll", handleScroll);

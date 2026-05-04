@@ -4,7 +4,7 @@ export type ColorTheme = {
   tertiaryColor: string;
 };
 
-const themes = {
+const homeThemes = {
   contrastTheme: {
     primaryColor: "#C62828",
     secondaryColor: "#2E7D32",
@@ -32,11 +32,9 @@ const themes = {
   },
 } satisfies Record<string, ColorTheme>;
 
-export const themeRepository = {
-  getRandomTheme(): ColorTheme {
-    const themeKeys = Object.keys(themes) as Array<keyof typeof themes>;
-    const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+export function getRandomHomeTheme(): ColorTheme {
+  const themeKeys = Object.keys(homeThemes) as Array<keyof typeof homeThemes>;
+  const randomKey = themeKeys[Math.floor(Math.random() * themeKeys.length)];
 
-    return themes[randomKey];
-  },
-};
+  return homeThemes[randomKey];
+}

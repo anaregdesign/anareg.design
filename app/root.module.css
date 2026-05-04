@@ -14,17 +14,6 @@
   color: #000;
 }
 
-@media (prefers-color-scheme: dark) {
-  .document {
-    background: oklch(13% 0.028 261.692);
-  }
-
-  .body {
-    background: oklch(13% 0.028 261.692);
-    color: #000;
-  }
-}
-
 .pageShell {
   max-width: 42rem;
   min-height: 20rem;

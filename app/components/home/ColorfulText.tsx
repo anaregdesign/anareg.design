@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import type { ColorTheme } from "~/lib/client/usecase/home/theme-repository";
+import type { ColorTheme } from "~/lib/client/usecase/home/home-theme";
 
 import styles from "./ColorfulText.module.css";
 

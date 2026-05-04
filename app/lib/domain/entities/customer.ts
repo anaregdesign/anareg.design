@@ -1,4 +1,5 @@
 import type { EmailAddress } from "~/lib/domain/value-objects/email-address";
+import { normalizeRequiredText } from "~/lib/domain/value-objects/required-text";
 
 export type CustomerProfile = {
   lastName: string;
@@ -24,14 +25,4 @@ export function createCustomerProfile(
     updatedAt: input.updatedAt,
     ipAddress: input.ipAddress,
   };
-}
-
-function normalizeRequiredText(value: string, fieldName: string) {
-  const normalized = value.trim();
-
-  if (!normalized) {
-    throw new Error(`${fieldName} is required.`);
-  }
-
-  return normalized;
 }

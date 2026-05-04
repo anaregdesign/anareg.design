@@ -1,4 +1,5 @@
 import type { EmailAddress } from "~/lib/domain/value-objects/email-address";
+import { normalizeRequiredText } from "~/lib/domain/value-objects/required-text";
 
 export type Inquiry = {
   lastName: string;
@@ -32,14 +33,4 @@ export function createInquiry(input: CreateInquiryInput): Inquiry {
     createdAt: input.createdAt,
     ipAddress: input.ipAddress,
   };
-}
-
-function normalizeRequiredText(value: string, fieldName: string) {
-  const normalized = value.trim();
-
-  if (!normalized) {
-    throw new Error(`${fieldName} is required.`);
-  }
-
-  return normalized;
 }
